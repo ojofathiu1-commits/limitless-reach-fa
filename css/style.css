@@ -3504,6 +3504,9 @@ h1, h2, h3, h4, p, li, a, span, label, legend {
     font-size: 16px;
     scroll-margin-top: 96px;
     scroll-margin-bottom: 32px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    touch-action: manipulation;
   }
 
   .page-header {

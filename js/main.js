@@ -34,11 +34,22 @@ function keepFocusedFieldVisible() {
     return;
   }
 
-  focusedMobileField.scrollIntoView({
-    behavior: 'smooth',
-    block: 'nearest',
-    inline: 'nearest'
-  });
+  const fieldBounds = focusedMobileField.getBoundingClientRect();
+  const headerBounds = document.querySelector('.site-header').getBoundingClientRect();
+  const visibleHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  const safeTop = Math.max(headerBounds.bottom, 0) + 16;
+  const safeBottom = visibleHeight - 24;
+  let adjustment = 0;
+
+  if (fieldBounds.bottom > safeBottom) {
+    adjustment = fieldBounds.bottom - safeBottom;
+  } else if (fieldBounds.top < safeTop) {
+    adjustment = fieldBounds.top - safeTop;
+  }
+
+  if (adjustment !== 0) {
+    window.scrollBy({ top: adjustment, left: 0, behavior: 'auto' });
+  }
 }
 
 document.addEventListener('focusin', function (event) {
@@ -47,7 +58,7 @@ document.addEventListener('focusin', function (event) {
   }
 
   focusedMobileField = event.target;
-  window.setTimeout(keepFocusedFieldVisible, 180);
+  window.setTimeout(keepFocusedFieldVisible, 280);
 });
 
 document.addEventListener('focusout', function (event) {
@@ -64,6 +75,8 @@ document.addEventListener('focusout', function (event) {
 
 if (window.visualViewport) {
   window.visualViewport.addEventListener('resize', function () {
-    window.setTimeout(keepFocusedFieldVisible, 80);
+    window.requestAnimationFrame(function () {
+      window.setTimeout(keepFocusedFieldVisible, 80);
+    });
   });
 }
