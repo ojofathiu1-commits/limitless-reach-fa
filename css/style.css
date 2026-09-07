@@ -134,9 +134,15 @@ h1, h2, h3, h4, p, li, a, span, label, legend {
 
 @media (max-width: 1024px) {
   .site-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
     padding: 0 24px;
     background: #F5F2EA;
     backdrop-filter: none;
+    z-index: 1000;
   }
 
   .header-container {
