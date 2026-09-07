@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=20260907-mobile-input">
 </head>
 <body>
 
@@ -20,16 +20,22 @@
     <nav class="nav-links">
       <a href="index.html" class="nav-link">HOME</a>
       <a href="the-academy.html" class="nav-link active">THE ACADEMY</a>
-      <a href="#" class="nav-link">PROGRAMMES</a>
-      <a href="#" class="nav-link">NEWS</a>
-      <a href="#" class="nav-link">CONTACT</a>
+      <a href="programmes.html" class="nav-link">PROGRAMMES</a>
+      <a href="news.html" class="nav-link">NEWS</a>
+      <a href="contact.html" class="nav-link">CONTACT</a>
     </nav>
 
-    <a href="#" class="btn-cta">REGISTER FOR TRIAL</a>
+    <a href="register.html" class="btn-cta">REGISTER FOR TRIAL</a>
+
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
 </header>
 
-<section class="page-header">
+<section class="page-header" id="our-story">
   <div class="page-header-inner">
     <div class="eyebrow eyebrow-gold">
       <span class="eyebrow-dot"></span>
@@ -81,7 +87,7 @@
   </div>
 </section>
 
-<section class="roots-section">
+<section class="roots-section" id="our-philosophy">
   <div class="roots-header">
     <div class="eyebrow">
       <span class="eyebrow-dot"></span>
@@ -154,7 +160,7 @@
   </div>
 </section>
 
-<section class="safeguarding-section">
+<section class="safeguarding-section" id="safeguarding">
   <div class="safeguarding-header">
     <div class="eyebrow">
       <span class="eyebrow-dot"></span>
@@ -192,7 +198,7 @@
   </div>
 </section>
 
-<section class="talent-section">
+<section class="talent-section" id="leadership">
   <div class="talent-row">
     <div class="talent-content">
       <div class="eyebrow">
@@ -213,8 +219,8 @@
     <h2 class="final-cta-heading">Ready to Reach Further?</h2>
     <p class="final-cta-text">Whether you are taking your first serious steps in football or looking for the next stage of your development, Limitless Reach is built to help you progress. Explore our programmes or register your interest in upcoming trials.</p>
     <div class="final-cta-buttons">
-      <a href="#" class="btn-dark">Explore Programmes <span class="btn-arrow">&rarr;</span></a>
-      <a href="#" class="btn-outline-dark">Register for Trial</a>
+      <a href="programmes.html" class="btn-dark">Explore Programmes <span class="btn-arrow">&rarr;</span></a>
+      <a href="register.html" class="btn-outline-dark">Register for Trial</a>
     </div>
   </div>
 </section>
@@ -230,20 +236,20 @@
       <div class="footer-column">
         <h4 class="footer-heading">The Academy</h4>
         <ul class="footer-list">
-          <li><a href="the-academy.html">Our Story</a></li>
-          <li><a href="the-academy.html">Our Philosophy</a></li>
-          <li><a href="the-academy.html">Leadership</a></li>
-          <li><a href="the-academy.html">Safeguarding</a></li>
+          <li><a href="the-academy.html#our-story">Our Story</a></li>
+          <li><a href="the-academy.html#our-philosophy">Our Philosophy</a></li>
+          <li><a href="the-academy.html#leadership">Leadership</a></li>
+          <li><a href="the-academy.html#safeguarding">Safeguarding</a></li>
         </ul>
       </div>
 
       <div class="footer-column">
         <h4 class="footer-heading">Get Involved</h4>
         <ul class="footer-list">
-          <li><a href="#">Programmes</a></li>
-          <li><a href="#">Register for Trial</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
 
@@ -281,6 +287,8 @@
     </div>
   </div>
 </footer>
+
+<script src="js/main.js?v=20260907-mobile-input"></script>
 
 </body>
 </html>

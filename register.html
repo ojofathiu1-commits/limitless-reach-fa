@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trial Registration &amp; Consent Form — Limitless Reach Football Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20260907-mobile-input">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-container">
+    <a href="index.html" class="logo-link">
+      <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="logo">
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="the-academy.html" class="nav-link">THE ACADEMY</a>
+      <a href="programmes.html" class="nav-link">PROGRAMMES</a>
+      <a href="news.html" class="nav-link">NEWS</a>
+      <a href="contact.html" class="nav-link">CONTACT</a>
+    </nav>
+
+    <a href="register.html" class="btn-cta">REGISTER FOR TRIAL</a>
+
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<section class="register-header">
+  <div class="page-header-inner">
+    <div class="eyebrow eyebrow-gold">
+      <span class="eyebrow-dot"></span>
+      <span>Register for Trial</span>
+    </div>
+    <h1 class="page-header-heading">Trial Registration<br><span class="accent">&amp; Consent Form.</span></h1>
+    <p class="page-header-text register-header-text">Thank you for your interest in trialling with Limitless Reach Football Academy. Please complete this form for the player attending the trial.</p>
+  </div>
+</section>
+
+<section class="register-body-section">
+  <div class="register-grid">
+    <div class="register-main">
+      <div class="register-intro">
+        <p class="register-intro-text">For players under the age of 18, the form must be completed or approved by a parent or legal guardian.</p>
+        <p class="register-intro-text">The information provided will be used to manage the player&rsquo;s trial, communicate important information and help us provide a safe environment. Personal and medical information will be treated confidentially and only accessed where necessary.</p>
+      </div>
+
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">
+          <span class="form-legend-eyebrow">Section 01</span>
+          <span class="form-legend-heading">Player Details</span>
+        </legend>
+
+        <div class="fieldset-rows">
+          <div class="field-group">
+            <label class="field-label" for="player-name">Player Full Name *</label>
+            <input type="text" id="player-name" name="player-name" class="field-input" placeholder="First name and surname" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="dob">Date of Birth *</label>
+              <input type="date" id="dob" name="dob" class="field-input" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="age">Age *</label>
+              <input type="number" id="age" name="age" class="field-input" min="0" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="programme-group">Programme / Age Group *</label>
+              <select id="programme-group" name="programme-group" class="field-select" required>
+                <option value="" disabled selected>Select</option>
+                <option value="foundation">Foundation</option>
+                <option value="youth">Youth</option>
+                <option value="development">Development</option>
+                <option value="amateur">Amateur</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="gender">Gender <span class="field-hint">Optional</span></label>
+              <select id="gender" name="gender" class="field-select">
+                <option value="" disabled selected>Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="current-club">Current Club / Academy <span class="field-hint">if applicable</span></label>
+              <input type="text" id="current-club" name="current-club" class="field-input">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="playing-level">Current Playing Level</label>
+              <select id="playing-level" name="playing-level" class="field-select">
+                <option value="" disabled selected>Select</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="primary-position">Primary Playing Position *</label>
+              <select id="primary-position" name="primary-position" class="field-select" required>
+                <option value="" disabled selected>Select</option>
+                <option value="goalkeeper">Goalkeeper</option>
+                <option value="defender">Defender</option>
+                <option value="midfielder">Midfielder</option>
+                <option value="forward">Forward</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="secondary-position">Secondary Position <span class="field-hint">Optional</span></label>
+              <select id="secondary-position" name="secondary-position" class="field-select">
+                <option value="" disabled selected>Select</option>
+                <option value="goalkeeper">Goalkeeper</option>
+                <option value="defender">Defender</option>
+                <option value="midfielder">Midfielder</option>
+                <option value="forward">Forward</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset form-fieldset--tight">
+        <legend class="form-legend">
+          <span class="form-legend-eyebrow">Section 02</span>
+          <span class="form-legend-heading">Parent / Guardian Details</span>
+        </legend>
+
+        <p class="fieldset-note">Required for players under 18.</p>
+
+        <div class="fieldset-rows">
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="guardian-name">Parent / Guardian Full Name *</label>
+              <input type="text" id="guardian-name" name="guardian-name" class="field-input" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="guardian-relationship">Relationship to Player *</label>
+              <input type="text" id="guardian-relationship" name="guardian-relationship" class="field-input" placeholder="e.g. Mother, Father, Guardian" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="guardian-phone">Phone Number *</label>
+              <input type="tel" id="guardian-phone" name="guardian-phone" class="field-input" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="guardian-email">Email Address *</label>
+              <input type="email" id="guardian-email" name="guardian-email" class="field-input" required>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Preferred Contact Method</label>
+            <div class="radio-pill-group">
+              <label class="radio-pill">
+                <input type="radio" name="contact-method" value="phone">
+                <span>Phone call</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="contact-method" value="whatsapp">
+                <span>WhatsApp</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="contact-method" value="email">
+                <span>Email</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">
+          <span class="form-legend-eyebrow">Section 03</span>
+          <span class="form-legend-heading">Emergency Contact</span>
+        </legend>
+
+        <div class="fieldset-rows">
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="emergency-name">Emergency Contact Name *</label>
+              <input type="text" id="emergency-name" name="emergency-name" class="field-input" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="emergency-relationship">Relationship to Player *</label>
+              <input type="text" id="emergency-relationship" name="emergency-relationship" class="field-input" required>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="emergency-number">Emergency Contact Number *</label>
+            <input type="tel" id="emergency-number" name="emergency-number" class="field-input" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">
+          <span class="form-legend-eyebrow">Section 04</span>
+          <span class="form-legend-heading">Medical &amp; Player Welfare</span>
+        </legend>
+
+        <div class="fieldset-rows">
+          <div class="field-group">
+            <label class="field-label">Does the Player Have Any Medical Condition, Allergy, Injury or Health Requirement That Our Coaches Should Be Aware Of? *</label>
+            <div class="radio-pill-group">
+              <label class="radio-pill">
+                <input type="radio" name="medical-condition" value="yes">
+                <span>Yes</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="medical-condition" value="no">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="medical-details">If Yes, Please Provide Details</label>
+            <textarea id="medical-details" name="medical-details" class="field-input field-textarea" placeholder="Condition, allergy or injury, and anything coaches should do differently"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Is the Player Currently Taking Any Medication That May Be Relevant During Football Activity? *</label>
+            <div class="radio-pill-group">
+              <label class="radio-pill">
+                <input type="radio" name="medication" value="yes">
+                <span>Yes</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="medication" value="no">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="medication-details">If Yes, Please Provide Details</label>
+            <textarea id="medication-details" name="medication-details" class="field-input field-textarea" placeholder="Medication, dosage and timing where relevant"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="additional-notes">Is There Anything Else Our Coaching or Safeguarding Team Should Know to Support the Player Safely During the Trial? <span class="field-hint">Optional</span></label>
+            <textarea id="additional-notes" name="additional-notes" class="field-input field-textarea"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">
+          <span class="form-legend-eyebrow">Section 05</span>
+          <span class="form-legend-heading">Trial Information</span>
+        </legend>
+
+        <div class="fieldset-rows">
+          <div class="field-group">
+            <label class="field-label" for="heard-about">How Did You Hear About Limitless Reach?</label>
+            <select id="heard-about" name="heard-about" class="field-select">
+              <option value="" disabled selected>Select</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="trial-reason">Why Would You Like to Trial With Limitless Reach? <span class="field-hint">Optional short response</span></label>
+            <textarea id="trial-reason" name="trial-reason" class="field-input field-textarea"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">
+          <span class="form-legend-eyebrow">Section 06</span>
+          <span class="form-legend-heading">Consent &amp; Declarations</span>
+        </legend>
+
+        <div class="consent-card">
+          <h4 class="consent-card-heading">Trial Participation Consent</h4>
+          <p class="consent-card-text">Football is a physical activity and, despite appropriate coaching and safety measures, carries an inherent risk of injury.</p>
+          <p class="consent-card-text">By registering for a trial, I confirm that the information provided in this form is accurate to the best of my knowledge and that the player is medically fit to participate, except for any conditions or injuries disclosed above.</p>
+          <p class="consent-card-text">For players under 18, I give permission for my child to participate in the Limitless Reach Football Academy trial and associated football activities.</p>
+          <p class="consent-card-text">I understand that players must follow the instructions of coaches and academy staff and wear appropriate football clothing, footwear and protective equipment, including shin guards where required.</p>
+
+          <div class="consent-agree">
+            <p class="consent-agree-label">I Have Read and Agree to the Above Trial Participation Consent. *</p>
+            <div class="radio-pill-group">
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="consent-trial" value="yes">
+                <span>Yes</span>
+              </label>
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="consent-trial" value="no">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="consent-card">
+          <h4 class="consent-card-heading">Emergency Medical Consent</h4>
+          <p class="consent-card-text">In the event of an injury or medical emergency, academy staff will make reasonable efforts to contact the player&rsquo;s parent, guardian or emergency contact.</p>
+          <p class="consent-card-text">Where urgent treatment is required and the appropriate contact cannot immediately be reached, I authorise Limitless Reach Football Academy to take reasonable steps to obtain appropriate first aid or emergency medical assistance for the player.</p>
+
+          <div class="consent-agree">
+            <p class="consent-agree-label">Emergency Medical Consent *</p>
+            <div class="radio-pill-group">
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="consent-emergency" value="yes">
+                <span>Yes</span>
+              </label>
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="consent-emergency" value="no">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="consent-card">
+          <h4 class="consent-card-heading">Photography &amp; Video Consent</h4>
+          <p class="consent-card-text">Limitless Reach may take photographs or videos during trials, training sessions, matches and academy activities.</p>
+          <p class="consent-card-text">Approved content may be used to showcase academy activities through our website, social media channels and other promotional materials. We will seek to use images responsibly and respectfully.</p>
+
+          <div class="consent-agree">
+            <p class="consent-agree-label">I give permission for photographs and/or videos of the player to be used for academy communications and promotion.</p>
+            <div class="radio-pill-group">
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="consent-photo" value="yes">
+                <span>Yes</span>
+              </label>
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="consent-photo" value="no">
+                <span>No</span>
+              </label>
+            </div>
+            <p class="consent-agree-note">Choosing No will not affect the player&rsquo;s opportunity to participate in the trial or be considered for the academy.</p>
+          </div>
+        </div>
+
+        <div class="consent-card">
+          <h4 class="consent-card-heading">Privacy</h4>
+          <p class="consent-card-text">The information submitted through this form will be used for trial administration, player welfare, safeguarding and relevant academy communications.</p>
+          <p class="consent-card-text">Medical and safeguarding information will be treated confidentially and only shared with relevant personnel where necessary for the player&rsquo;s safety and participation.</p>
+
+          <div class="consent-agree">
+            <p class="consent-agree-label">I confirm that I have provided accurate information and consent to Limitless Reach processing this information for the purposes described above. *</p>
+            <div class="radio-pill-group">
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="consent-privacy" value="yes">
+                <span>Yes</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="consent-card">
+          <h4 class="consent-card-heading">Future Academy Updates</h4>
+          <p class="consent-card-text">Would you like to receive information about future trials, programmes, camps and academy opportunities?</p>
+
+          <div class="consent-agree consent-agree--tight">
+            <div class="radio-pill-group">
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="future-updates" value="yes">
+                <span>Yes</span>
+              </label>
+              <label class="radio-pill radio-pill--sm">
+                <input type="radio" name="future-updates" value="no">
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset form-fieldset--snug">
+        <legend class="form-legend">
+          <span class="form-legend-eyebrow">Section 07</span>
+          <span class="form-legend-heading">Declaration</span>
+        </legend>
+
+        <div class="field-row declaration-row">
+          <div class="field-group">
+            <label class="field-label" for="declare-name">Name of Player, Parent or Guardian *</label>
+            <input type="text" id="declare-name" name="declare-name" class="field-input field-input--lg" required>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="declare-signature">Signature *</label>
+            <input type="text" id="declare-signature" name="declare-signature" class="field-input field-input--lg field-input--signature" placeholder="Type your full name" required>
+          </div>
+          <div class="field-group field-group--narrow">
+            <label class="field-label" for="declare-date">Date *</label>
+            <input type="date" id="declare-date" name="declare-date" class="field-input field-input--lg" required>
+          </div>
+        </div>
+
+        <p class="fieldset-note">For players under 18, this declaration must be completed by a parent or legal guardian.</p>
+      </fieldset>
+
+      <div class="register-cta">
+        <h2 class="register-cta-heading">Ready to Reach Further?</h2>
+        <p class="register-cta-text">Once your registration has been reviewed, the Limitless Reach team will contact you with your trial date, time, venue and arrival instructions.</p>
+        <button type="submit" class="btn-primary">Submit Trial Registration <span class="btn-arrow">&rarr;</span></button>
+      </div>
+    </div>
+
+    <aside class="register-aside">
+      <h3 class="register-aside-heading">Before You Start</h3>
+      <div class="register-aside-list">
+        <div class="register-aside-item">
+          <span class="register-aside-number">01</span>
+          <p class="register-aside-text">Have the player&rsquo;s date of birth, medical details and an emergency contact number to hand.</p>
+        </div>
+        <div class="register-aside-item">
+          <span class="register-aside-number">02</span>
+          <p class="register-aside-text">Under-18s must be registered by a parent or legal guardian.</p>
+        </div>
+        <div class="register-aside-item">
+          <span class="register-aside-number">03</span>
+          <p class="register-aside-text">Trials are free to attend. Registering does not guarantee a place.</p>
+        </div>
+        <div class="register-aside-item">
+          <span class="register-aside-number">04</span>
+          <p class="register-aside-text">Questions first? <a href="contact.html" class="inline-link">Contact us.</a></p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="footer-logo">
+        <p class="footer-tagline">A grassroots football academy in Ibadan, Oyo State. Developing players, unlocking potential, creating pathways.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">The Academy</h4>
+        <ul class="footer-list">
+          <li><a href="the-academy.html#our-story">Our Story</a></li>
+          <li><a href="the-academy.html#our-philosophy">Our Philosophy</a></li>
+          <li><a href="the-academy.html#leadership">Leadership</a></li>
+          <li><a href="the-academy.html#safeguarding">Safeguarding</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">Get Involved</h4>
+        <ul class="footer-list">
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">Get in Touch</h4>
+        <ul class="footer-list">
+          <li><a href="mailto:operations@limitlessreachfa.com">operations@limitlessreachfa.com</a></li>
+          <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
+          <li><a href="#">@limitlessreachfc</a></li>
+          <li>Bodija, Ibadan &middot; Oyo State</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2027 Limitless Reach Football Academy &middot; Ibadan, Nigeria</p>
+
+      <div class="footer-social">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <img src="assets/instagram.svg" alt="">
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <img src="assets/youtube.svg" alt="">
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <img src="assets/tiktok.svg" alt="">
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <img src="assets/facebook.svg" alt="">
+        </a>
+        <a href="#" class="social-link" aria-label="X">
+          <img src="assets/x.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=20260907-mobile-input"></script>
+
+</body>
+</html>

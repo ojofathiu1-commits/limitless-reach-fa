@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Limitless Reach Football Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20260907-mobile-input">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-container">
+    <a href="index.html" class="logo-link">
+      <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="logo">
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">HOME</a>
+      <a href="the-academy.html" class="nav-link">THE ACADEMY</a>
+      <a href="programmes.html" class="nav-link">PROGRAMMES</a>
+      <a href="news.html" class="nav-link">NEWS</a>
+      <a href="contact.html" class="nav-link active">CONTACT</a>
+    </nav>
+
+    <a href="register.html" class="btn-cta">REGISTER FOR TRIAL</a>
+
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<section class="news-header">
+  <div class="page-header-inner">
+    <div class="eyebrow eyebrow-gold">
+      <span class="eyebrow-dot"></span>
+      <span>Contact</span>
+    </div>
+    <h1 class="page-header-heading">Get in<br><span class="accent">Touch.</span></h1>
+    <p class="page-header-text page-header-text--narrow">Questions about programmes, trials, coaching or partnerships? We would love to hear from you.</p>
+  </div>
+</section>
+
+<section class="contact-body-section">
+  <div class="contact-grid">
+    <aside class="contact-aside">
+      <h3 class="contact-aside-heading">Reach Us</h3>
+
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="contact-row-label">General</span>
+          <span class="contact-row-value">operations@limitlessreachfa.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">Trials</span>
+          <span class="contact-row-value">trials@limitlessreachfa.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">Partnerships</span>
+          <span class="contact-row-value">partnerships@limitlessreachfa.com</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">Phone</span>
+          <span class="contact-row-value">+234 800 000 0000</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">WhatsApp</span>
+          <span class="contact-row-value">+234 800 000 0000</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">Where</span>
+          <span class="contact-row-value">Bodija, Ibadan &middot; Oyo State</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">Social</span>
+          <span class="contact-row-value">@limitlessreachfc</span>
+        </div>
+      </div>
+
+      <p class="contact-aside-note">Looking to try out? <a href="programmes.html" class="inline-link">Register for a trial</a> instead and we will come to you with trial dates.</p>
+    </aside>
+
+    <form class="contact-form">
+      <div class="form-group">
+        <label class="form-label" for="topic">What Is Your Enquiry About? *</label>
+        <select id="topic" name="topic" class="form-select" required>
+          <option value="" disabled selected>Select a topic</option>
+          <option value="general">General</option>
+          <option value="trials">Trials</option>
+          <option value="partnerships">Partnerships</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="name">Name *</label>
+          <input type="text" id="name" name="name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="organisation">Organisation <span class="form-label-hint">if applicable</span></label>
+          <input type="text" id="organisation" name="organisation" class="form-input">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="contact-info">Email / Phone *</label>
+          <input type="text" id="contact-info" name="contact-info" class="form-input" placeholder="Email or phone" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="player-age">Player Age <span class="form-label-hint">Players only</span></label>
+          <input type="text" id="player-age" name="player-age" class="form-input" placeholder="e.g. 13">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="programme">Programme <span class="form-label-hint">Player enquiries only</span></label>
+        <select id="programme" name="programme" class="form-select">
+          <option value="" disabled selected>Select a programme</option>
+          <option value="foundation">Foundation</option>
+          <option value="youth">Youth</option>
+          <option value="development">Development</option>
+          <option value="amateur">Amateur</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message">Message *</label>
+        <textarea id="message" name="message" class="form-textarea" placeholder="How can we help?" required></textarea>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="btn-submit">Send Message <span class="btn-arrow">&rarr;</span></button>
+        <p class="form-submit-note">We reply within a few working days.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="footer-logo">
+        <p class="footer-tagline">A grassroots football academy in Ibadan, Oyo State. Developing players, unlocking potential, creating pathways.</p>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">The Academy</h4>
+        <ul class="footer-list">
+          <li><a href="the-academy.html#our-story">Our Story</a></li>
+          <li><a href="the-academy.html#our-philosophy">Our Philosophy</a></li>
+          <li><a href="the-academy.html#leadership">Leadership</a></li>
+          <li><a href="the-academy.html#safeguarding">Safeguarding</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">Get Involved</h4>
+        <ul class="footer-list">
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">Get in Touch</h4>
+        <ul class="footer-list">
+          <li><a href="mailto:operations@limitlessreachfa.com">operations@limitlessreachfa.com</a></li>
+          <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
+          <li><a href="#">@limitlessreachfc</a></li>
+          <li>Bodija, Ibadan &middot; Oyo State</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; 2027 Limitless Reach Football Academy &middot; Ibadan, Nigeria</p>
+
+      <div class="footer-social">
+        <a href="#" class="social-link" aria-label="Instagram">
+          <img src="assets/instagram.svg" alt="">
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube">
+          <img src="assets/youtube.svg" alt="">
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <img src="assets/tiktok.svg" alt="">
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <img src="assets/facebook.svg" alt="">
+        </a>
+        <a href="#" class="social-link" aria-label="X">
+          <img src="assets/x.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=20260907-mobile-input"></script>
+
+</body>
+</html>
