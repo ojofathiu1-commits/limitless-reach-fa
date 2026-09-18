@@ -2,29 +2,52 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
 function setMenuState(isOpen) {
+  if (!navToggle || !navLinks) {
+    return;
+  }
+
   navLinks.classList.toggle('is-open', isOpen);
   navToggle.classList.toggle('is-open', isOpen);
-  navToggle.setAttribute('aria-expanded', isOpen);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
   navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   document.body.classList.toggle('nav-open', isOpen);
 }
 
-navToggle.addEventListener('click', function () {
-  setMenuState(!navLinks.classList.contains('is-open'));
-});
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', function () {
+    setMenuState(!navLinks.classList.contains('is-open'));
+  });
 
-navLinks.addEventListener('click', function (event) {
-  if (event.target.closest('.nav-link')) {
-    setMenuState(false);
-  }
-});
+  navLinks.addEventListener('click', function (event) {
+    if (event.target.closest('a')) {
+      setMenuState(false);
+    }
+  });
 
-window.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape' && navLinks.classList.contains('is-open')) {
-    setMenuState(false);
-    navToggle.focus();
-  }
-});
+  document.addEventListener('click', function (event) {
+    if (
+      navLinks.classList.contains('is-open') &&
+      !navLinks.contains(event.target) &&
+      !navToggle.contains(event.target)
+    ) {
+      setMenuState(false);
+    }
+  });
+
+  window.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && navLinks.classList.contains('is-open')) {
+      setMenuState(false);
+      navToggle.focus();
+    }
+  });
+
+  const desktopNavigation = window.matchMedia('(min-width: 1025px)');
+  desktopNavigation.addEventListener('change', function (event) {
+    if (event.matches) {
+      setMenuState(false);
+    }
+  });
+}
 
 const mobileFieldSelector = '.form-input, .form-select, .form-textarea, .field-input, .field-select';
 let focusedMobileField = null;

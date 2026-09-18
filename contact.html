@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260907-fixed-header">
+<link rel="stylesheet" href="css/style.css?v=20260918-mobile-menu-full-width">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
       <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="logo">
     </a>
 
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-navigation">
       <a href="index.html" class="nav-link">HOME</a>
       <a href="the-academy.html" class="nav-link">THE ACADEMY</a>
       <a href="programmes.html" class="nav-link">PROGRAMMES</a>
@@ -27,7 +27,7 @@
 
     <a href="register.html" class="btn-cta">REGISTER FOR TRIAL</a>
 
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false">
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
@@ -54,23 +54,23 @@
       <div class="contact-list">
         <div class="contact-row">
           <span class="contact-row-label">General</span>
-          <span class="contact-row-value">operations@limitlessreachfa.com</span>
+          <a href="mailto:operations@limitlessreachfa.com" class="contact-row-value">operations@limitlessreachfa.com</a>
         </div>
         <div class="contact-row">
           <span class="contact-row-label">Trials</span>
-          <span class="contact-row-value">trials@limitlessreachfa.com</span>
+          <a href="mailto:trials@limitlessreachfa.com" class="contact-row-value">trials@limitlessreachfa.com</a>
         </div>
         <div class="contact-row">
           <span class="contact-row-label">Partnerships</span>
-          <span class="contact-row-value">partnerships@limitlessreachfa.com</span>
+          <a href="mailto:partnerships@limitlessreachfa.com" class="contact-row-value">partnerships@limitlessreachfa.com</a>
         </div>
         <div class="contact-row">
           <span class="contact-row-label">Phone</span>
-          <span class="contact-row-value">+234 800 000 0000</span>
+          <a href="tel:+2348000000000" class="contact-row-value">+234 800 000 0000</a>
         </div>
         <div class="contact-row">
           <span class="contact-row-label">WhatsApp</span>
-          <span class="contact-row-value">+234 800 000 0000</span>
+          <a href="https://wa.me/2348000000000" class="contact-row-value">+234 800 000 0000</a>
         </div>
         <div class="contact-row">
           <span class="contact-row-label">Where</span>
@@ -82,10 +82,10 @@
         </div>
       </div>
 
-      <p class="contact-aside-note">Looking to try out? <a href="programmes.html" class="inline-link">Register for a trial</a> instead and we will come to you with trial dates.</p>
+      <p class="contact-aside-note">Looking to try out? <a href="register.html" class="inline-link">Register for a trial</a> instead and we will come to you with trial dates.</p>
     </aside>
 
-    <form class="contact-form">
+    <form class="contact-form" action="mailto:operations@limitlessreachfa.com" method="post" enctype="text/plain">
       <div class="form-group">
         <label class="form-label" for="topic">What Is Your Enquiry About? *</label>
         <select id="topic" name="topic" class="form-select" required>
@@ -205,7 +205,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260907-keyboard-viewport"></script>
+<script src="js/main.js?v=20260918-navigation"></script>
 
 </body>
 </html>

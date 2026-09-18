@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260907-fixed-header">
+<link rel="stylesheet" href="css/style.css?v=20260918-mobile-menu-full-width">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
       <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="logo">
     </a>
 
-    <nav class="nav-links">
+    <nav class="nav-links" id="site-navigation">
       <a href="index.html" class="nav-link">HOME</a>
       <a href="the-academy.html" class="nav-link">THE ACADEMY</a>
       <a href="programmes.html" class="nav-link">PROGRAMMES</a>
@@ -25,9 +25,9 @@
       <a href="contact.html" class="nav-link">CONTACT</a>
     </nav>
 
-    <a href="register.html" class="btn-cta">REGISTER FOR TRIAL</a>
+    <a href="register.html" class="btn-cta active">REGISTER FOR TRIAL</a>
 
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false">
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
       <span class="nav-toggle-bar"></span>
@@ -48,7 +48,7 @@
 
 <section class="register-body-section">
   <div class="register-grid">
-    <div class="register-main">
+    <form class="register-main" action="mailto:trials@limitlessreachfa.com" method="post" enctype="text/plain">
       <div class="register-intro">
         <p class="register-intro-text">For players under the age of 18, the form must be completed or approved by a parent or legal guardian.</p>
         <p class="register-intro-text">The information provided will be used to manage the player&rsquo;s trial, communicate important information and help us provide a safe environment. Personal and medical information will be treated confidentially and only accessed where necessary.</p>
@@ -419,7 +419,7 @@
         <p class="register-cta-text">Once your registration has been reviewed, the Limitless Reach team will contact you with your trial date, time, venue and arrival instructions.</p>
         <button type="submit" class="btn-primary">Submit Trial Registration <span class="btn-arrow">&rarr;</span></button>
       </div>
-    </div>
+    </form>
 
     <aside class="register-aside">
       <h3 class="register-aside-heading">Before You Start</h3>
@@ -508,7 +508,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260907-keyboard-viewport"></script>
+<script src="js/main.js?v=20260918-navigation"></script>
 
 </body>
 </html>
