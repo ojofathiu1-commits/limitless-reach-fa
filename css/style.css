@@ -5361,6 +5361,123 @@ article[id] {
   }
 }
 
+/* Touch devices do not expose hover. Keep the same feedback while a card is
+   pressed, rather than relying on a desktop-preview-only hover capability. */
+@media (hover: none) {
+  .purpose-card,
+  .roots-col,
+  .standard-card,
+  .programme-detail-card,
+  .sponsor-offerings-cards .sponsor-card,
+  .safeguarding-item,
+  .article-aside,
+  .home-page .intro-card,
+  .home-page .trials-card,
+  .home-page .sponsor-card,
+  .news-card {
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  }
+
+  .purpose-card:active,
+  .roots-col:active,
+  .standard-card:active,
+  .programme-detail-card:active,
+  .sponsor-offerings-cards .sponsor-card:active,
+  .safeguarding-item:active,
+  .article-aside:active,
+  .home-page .intro-card:active,
+  .home-page .trials-card:active,
+  .home-page .sponsor-card:active,
+  .news-card:active {
+    background: #D99423;
+    border-color: #D99423;
+    box-shadow: 0 10px 22px rgba(184, 119, 24, 0.18);
+  }
+
+  .purpose-card:active::before {
+    background: #F5F2EA;
+  }
+
+  .purpose-card:active .purpose-label,
+  .roots-col:active .roots-number,
+  .standard-card:active .standard-number,
+  .programme-detail-card:active .programme-detail-number,
+  .programme-detail-card:active .programme-field-label,
+  .sponsor-offerings-cards .sponsor-card:active .sponsor-card-number,
+  .safeguarding-item:active .label-small,
+  .article-aside:active .aside-heading,
+  .article-aside:active .aside-label,
+  .home-page .intro-card:active .card-number,
+  .home-page .trials-card:active .trials-card-label,
+  .home-page .sponsor-card:active .sponsor-card-number,
+  .news-card:active .news-tag-plain,
+  .news-card:active .news-read-more {
+    color: #F5F2EA;
+  }
+
+  .article-aside:active .aside-btn,
+  .news-card:active .news-tag {
+    background: #F5F2EA;
+    color: #1A1A17;
+  }
+
+  .purpose-card:active .purpose-card-heading,
+  .roots-col:active .roots-heading,
+  .standard-card:active .standard-heading,
+  .programme-detail-card:active .programme-detail-heading,
+  .programme-detail-card:active .programme-detail-meta,
+  .programme-detail-card:active .programme-detail-text,
+  .programme-detail-card:active .programme-field-text,
+  .sponsor-offerings-cards .sponsor-card:active .sponsor-card-heading,
+  .safeguarding-item:active .mission-text,
+  .safeguarding-item:active .inline-link,
+  .article-aside:active .aside-text,
+  .home-page .intro-card:active .card-heading,
+  .home-page .trials-card:active .trials-card-heading,
+  .home-page .sponsor-card:active .sponsor-card-heading,
+  .news-card:active .news-card-heading {
+    color: #1A1A17;
+  }
+
+  .purpose-card:active .purpose-card-text,
+  .roots-col:active .roots-text,
+  .standard-card:active .standard-text,
+  .sponsor-offerings-cards .sponsor-card:active .sponsor-list li,
+  .home-page .intro-card:active .card-text,
+  .home-page .trials-card:active .trials-card-text,
+  .home-page .sponsor-card:active .sponsor-list li,
+  .news-card:active .news-card-text {
+    color: rgba(26, 26, 23, 0.92);
+  }
+
+  .programme-detail-card:active .programme-detail-top,
+  .programme-detail-card:active .programme-field,
+  .article-aside:active .aside-field {
+    border-color: rgba(245, 242, 234, 0.62);
+  }
+
+  .sponsor-offerings-cards .sponsor-card:active .sponsor-list li::before,
+  .home-page .sponsor-card:active .sponsor-list li::before {
+    background: #F5F2EA;
+  }
+
+  .news-card:active .news-read-more .btn-arrow {
+    transform: translateX(4px);
+  }
+}
+
+/* Preserve the Figma mobile philosophy rhythm while that row is pressed. */
+@media (max-width: 768px) and (hover: none) {
+  .roots-col:active {
+    width: 100%;
+    justify-self: center;
+    margin-inline: auto;
+    padding: 27.25px 22px 28px;
+    border-radius: 8px;
+  }
+}
+
 /* Centred mobile navigation — the header retains the logo and trial CTA. */
 @media (max-width: 1024px) {
   .nav-links {
