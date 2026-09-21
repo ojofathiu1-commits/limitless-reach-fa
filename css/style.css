@@ -9,6 +9,14 @@
   --gutter-inner: clamp(20px, calc(20px + (100vw - 375px) * 0.0517), 72px);
 }
 
+@font-face {
+  font-family: 'LRFC Oswald';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('../assets/fonts/Oswald-Bold.ttf') format('truetype');
+}
+
 body {
   font-family: 'Inter', sans-serif;
 }
@@ -303,8 +311,8 @@ article[id] {
 
 .hero-heading {
   margin-top: 25px;
-  max-width: 885px;
-  font-family: 'Oswald', sans-serif;
+  max-width: 885.13px;
+  font-family: 'LRFC Oswald', 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 92px;
   line-height: 0.95;
@@ -332,6 +340,37 @@ article[id] {
   display: flex;
   gap: 14px;
   margin-top: 34px;
+}
+
+/* Desktop hero measurements from the supplied Figma frame. */
+@media (min-width: 1025px) {
+  .home-page .hero-content {
+    width: 885.13px;
+    max-width: 1000px;
+    height: 616.3px;
+    padding: 0;
+    transform: translateY(max(0px, calc(386.15px - 50vh)));
+  }
+
+  .home-page .hero-heading {
+    width: 885.13px;
+    height: 263px;
+    min-height: 263px;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .home-page .hero-subtext {
+    width: 680px;
+    height: 66px;
+    min-height: 66px;
+  }
+
+  .home-page .hero-buttons {
+    width: 100%;
+    height: 53.15px;
+    justify-content: center;
+  }
 }
 
 .btn-primary {
