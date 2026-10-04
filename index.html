@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=20261004-no-mobile-card-hover">
+<link rel="stylesheet" href="css/style.css?v=20261004-hero-optimized">
 </head>
 <body class="home-page">
 
@@ -37,7 +37,26 @@
 
 <section class="hero">
   <div class="hero-media">
-    <img src="assets/hero-bg.png" alt="" class="hero-bg-image">
+    <picture class="hero-picture">
+      <source
+        type="image/avif"
+        srcset="assets/hero-bg-768.avif 768w, assets/hero-bg-1440.avif 1440w, assets/hero-bg-2400.avif 2400w"
+        sizes="100vw">
+      <source
+        type="image/webp"
+        srcset="assets/hero-bg-768.webp 768w, assets/hero-bg-1440.webp 1440w, assets/hero-bg-2400.webp 2400w"
+        sizes="100vw">
+      <img
+        src="assets/hero-bg-1440.jpg"
+        srcset="assets/hero-bg-768.jpg 768w, assets/hero-bg-1440.jpg 1440w, assets/hero-bg-2400.jpg 2400w"
+        sizes="100vw"
+        width="3024"
+        height="1733"
+        alt=""
+        class="hero-bg-image"
+        fetchpriority="high"
+        decoding="async">
+    </picture>
     <div class="hero-gradient"></div>
   </div>
 
