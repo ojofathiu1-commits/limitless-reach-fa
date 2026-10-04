@@ -5168,6 +5168,119 @@ article[id] {
   }
 }
 
+/* Purpose section — matched to the supplied 440px Figma layout. */
+@media (max-width: 480px) {
+  .purpose-inner {
+    width: calc(100% + var(--gutter-outer) + var(--gutter-outer));
+    gap: 22px;
+    padding: 0 22px;
+    margin-right: calc(0px - var(--gutter-outer));
+    margin-left: calc(0px - var(--gutter-outer));
+  }
+
+  .purpose-header {
+    gap: 19.85px;
+    width: 100%;
+    max-width: none;
+  }
+
+  .purpose-heading {
+    font-size: 32px;
+    line-height: 28px;
+    letter-spacing: 0.064px;
+  }
+
+  .purpose-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+    max-width: none;
+  }
+
+  .purpose-card {
+    gap: 12px;
+    padding: 24px 0 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .purpose-card::before {
+    top: 0;
+    left: 0;
+  }
+
+  .purpose-label {
+    line-height: 19px;
+  }
+
+  .purpose-card-heading {
+    padding-top: 6px;
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: -0.11px;
+    white-space: nowrap;
+  }
+
+  .purpose-card-text {
+    padding-top: 8px;
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .safeguarding-section {
+    gap: 24px;
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .safeguarding-header {
+    gap: 19.9px;
+    max-width: none;
+  }
+
+  .safeguarding-header .eyebrow {
+    margin-bottom: 0;
+  }
+
+  .safeguarding-header .roots-intro {
+    max-width: none;
+    margin-top: 14px;
+    font-size: 19px;
+    line-height: 28px;
+    letter-spacing: -0.095px;
+  }
+
+  .safeguarding-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: none;
+    border-top: 1px solid rgba(12, 12, 10, 0.12);
+  }
+
+  .safeguarding-item {
+    gap: 1.3px;
+    min-height: 0;
+    padding: 16px 0 16.59px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(12, 12, 10, 0.12);
+    border-radius: 0;
+  }
+
+  .safeguarding-item .label-small {
+    padding-bottom: 7.45px;
+    line-height: 17px;
+  }
+
+  .safeguarding-item .mission-text {
+    font-size: 15.5px;
+    line-height: 24px;
+  }
+}
+
 @media (min-width: 769px) and (hover: hover) {
   /* Academy content states: colour-led feedback, with no layout movement. */
   .purpose-card,
