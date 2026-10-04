@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260918-home-hero-figma-fit">
+<link rel="stylesheet" href="css/style.css?v=20261004-mobile-date">
 </head>
 <body>
 
@@ -48,7 +48,12 @@
 
 <section class="register-body-section">
   <div class="register-grid">
-    <form class="register-main" action="mailto:trials@limitlessreachfa.com" method="post" enctype="text/plain">
+    <form class="register-main" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7293081a-3692-49bb-a424-d1ee994d93fd">
+      <input type="hidden" name="subject" value="New trial registration — Limitless Reach FA">
+      <input type="hidden" name="from_name" value="Limitless Reach Football Academy">
+      <input type="hidden" name="form_type" value="Trial registration">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
       <div class="register-intro">
         <p class="register-intro-text">For players under the age of 18, the form must be completed or approved by a parent or legal guardian.</p>
         <p class="register-intro-text">The information provided will be used to manage the player&rsquo;s trial, communicate important information and help us provide a safe environment. Personal and medical information will be treated confidentially and only accessed where necessary.</p>
@@ -108,6 +113,13 @@
               <label class="field-label" for="playing-level">Current Playing Level</label>
               <select id="playing-level" name="playing-level" class="field-select">
                 <option value="" disabled selected>Select</option>
+                <option value="beginner">Beginner / New to organised football</option>
+                <option value="recreational">Recreational football</option>
+                <option value="school">School football</option>
+                <option value="grassroots-club">Grassroots club football</option>
+                <option value="academy">Football academy</option>
+                <option value="competitive">Competitive / league football</option>
+                <option value="other">Other</option>
               </select>
             </div>
           </div>
@@ -164,7 +176,7 @@
             </div>
             <div class="field-group">
               <label class="field-label" for="guardian-email">Email Address *</label>
-              <input type="email" id="guardian-email" name="guardian-email" class="field-input" required>
+              <input type="email" id="guardian-email" name="email" class="field-input" required>
             </div>
           </div>
 
@@ -224,11 +236,11 @@
             <label class="field-label">Does the Player Have Any Medical Condition, Allergy, Injury or Health Requirement That Our Coaches Should Be Aware Of? *</label>
             <div class="radio-pill-group">
               <label class="radio-pill">
-                <input type="radio" name="medical-condition" value="yes">
+                <input type="radio" name="medical-condition" value="yes" required>
                 <span>Yes</span>
               </label>
               <label class="radio-pill">
-                <input type="radio" name="medical-condition" value="no">
+                <input type="radio" name="medical-condition" value="no" required>
                 <span>No</span>
               </label>
             </div>
@@ -243,11 +255,11 @@
             <label class="field-label">Is the Player Currently Taking Any Medication That May Be Relevant During Football Activity? *</label>
             <div class="radio-pill-group">
               <label class="radio-pill">
-                <input type="radio" name="medication" value="yes">
+                <input type="radio" name="medication" value="yes" required>
                 <span>Yes</span>
               </label>
               <label class="radio-pill">
-                <input type="radio" name="medication" value="no">
+                <input type="radio" name="medication" value="no" required>
                 <span>No</span>
               </label>
             </div>
@@ -303,11 +315,11 @@
             <p class="consent-agree-label">I Have Read and Agree to the Above Trial Participation Consent. *</p>
             <div class="radio-pill-group">
               <label class="radio-pill radio-pill--sm">
-                <input type="radio" name="consent-trial" value="yes">
+                <input type="radio" name="consent-trial" value="yes" required>
                 <span>Yes</span>
               </label>
               <label class="radio-pill radio-pill--sm">
-                <input type="radio" name="consent-trial" value="no">
+                <input type="radio" name="consent-trial" value="no" required>
                 <span>No</span>
               </label>
             </div>
@@ -323,11 +335,11 @@
             <p class="consent-agree-label">Emergency Medical Consent *</p>
             <div class="radio-pill-group">
               <label class="radio-pill radio-pill--sm">
-                <input type="radio" name="consent-emergency" value="yes">
+                <input type="radio" name="consent-emergency" value="yes" required>
                 <span>Yes</span>
               </label>
               <label class="radio-pill radio-pill--sm">
-                <input type="radio" name="consent-emergency" value="no">
+                <input type="radio" name="consent-emergency" value="no" required>
                 <span>No</span>
               </label>
             </div>
@@ -364,7 +376,7 @@
             <p class="consent-agree-label">I confirm that I have provided accurate information and consent to Limitless Reach processing this information for the purposes described above. *</p>
             <div class="radio-pill-group">
               <label class="radio-pill radio-pill--sm">
-                <input type="radio" name="consent-privacy" value="yes">
+                <input type="radio" name="consent-privacy" value="yes" required>
                 <span>Yes</span>
               </label>
             </div>
@@ -417,6 +429,7 @@
       <div class="register-cta">
         <h2 class="register-cta-heading">Ready to Reach Further?</h2>
         <p class="register-cta-text">Once your registration has been reviewed, the Limitless Reach team will contact you with your trial date, time, venue and arrival instructions.</p>
+        <p class="form-status" role="status" aria-live="polite" hidden></p>
         <button type="submit" class="btn-primary">Submit Trial Registration <span class="btn-arrow">&rarr;</span></button>
       </div>
     </form>
@@ -509,6 +522,7 @@
 </footer>
 
 <script src="js/main.js?v=20260918-navigation"></script>
+<script src="js/forms.js?v=20261004-web3forms"></script>
 
 </body>
 </html>

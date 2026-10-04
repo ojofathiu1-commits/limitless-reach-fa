@@ -189,7 +189,12 @@
         </div>
       </aside>
 
-      <form class="sponsor-enquiry-form" action="mailto:partnerships@limitlessreachfa.com" method="post" enctype="text/plain">
+      <form class="sponsor-enquiry-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="7293081a-3692-49bb-a424-d1ee994d93fd">
+        <input type="hidden" name="subject" value="New sponsorship enquiry — Limitless Reach FA">
+        <input type="hidden" name="from_name" value="Limitless Reach Football Academy">
+        <input type="hidden" name="form_type" value="Sponsorship enquiry">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="sponsor-contact-name">Contact Name *</label>
@@ -228,6 +233,7 @@
           <textarea id="sponsor-goals" name="goals" class="form-textarea" placeholder="Tell us about your organisation and what a partnership would look like for you." required></textarea>
         </div>
 
+        <p class="form-status" role="status" aria-live="polite" hidden></p>
         <div class="form-submit-row">
           <button type="submit" class="btn-submit sponsor-submit">Send Enquiry <span class="btn-arrow">&rarr;</span></button>
           <p class="form-submit-note">We’ll reply within a few working days with a tailored proposal.</p>
@@ -291,5 +297,6 @@
 </footer>
 
 <script src="js/main.js?v=20260918-navigation"></script>
+<script src="js/forms.js?v=20261004-web3forms"></script>
 </body>
 </html>

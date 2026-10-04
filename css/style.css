@@ -748,7 +748,7 @@ article[id] {
   text-decoration: none;
 }
 
-@media (hover: hover) {
+@media (min-width: 769px) and (hover: hover) {
   .programme-card:hover,
   .programme-card:focus-within {
     background: #D99423;
@@ -1909,6 +1909,28 @@ article[id] {
   border-color: #D99423;
 }
 
+/* Safari on iPhone centres and adds extra internal spacing to date values.
+   Normalise its native parts so date controls match the other form fields. */
+.field-input[type='date'] {
+  text-align: left;
+}
+
+.field-input[type='date']::-webkit-date-and-time-value {
+  min-height: 1lh;
+  text-align: inherit;
+}
+
+.field-input[type='date']::-webkit-datetime-edit {
+  display: inline-flex;
+}
+
+.field-input[type='date']::-webkit-datetime-edit-fields-wrapper,
+.field-input[type='date']::-webkit-datetime-edit-year-field,
+.field-input[type='date']::-webkit-datetime-edit-month-field,
+.field-input[type='date']::-webkit-datetime-edit-day-field {
+  padding-block: 0;
+}
+
 .field-select {
   padding-right: 38px;
   appearance: none;
@@ -2487,6 +2509,11 @@ article[id] {
 .inline-link {
   color: inherit;
   text-decoration: none;
+}
+
+/* The safeguarding contact route is an accent link in the approved design. */
+.mission-text .inline-link {
+  color: #B87718;
 }
 
 .team-text-col {
@@ -5086,7 +5113,7 @@ article[id] {
   }
 }
 
-@media (hover: hover) {
+@media (min-width: 769px) and (hover: hover) {
   /* Academy content states: colour-led feedback, with no layout movement. */
   .purpose-card,
   .roots-col,
@@ -5372,148 +5399,6 @@ article[id] {
 
   .news-card:focus-within .news-read-more:focus-visible {
     outline-color: #1A1A17;
-  }
-}
-
-/* Mobile philosophy rows use the established gold active state with fitted spacing. */
-@media (max-width: 768px) and (hover: hover) {
-  .roots-col:hover {
-    width: 100%;
-    justify-self: center;
-    margin-inline: auto;
-    padding: 27.25px 22px 28px;
-    background: #D99423;
-    border-radius: 8px;
-    box-shadow: 0 10px 22px rgba(184, 119, 24, 0.18);
-  }
-
-  .roots-col:hover .roots-number {
-    color: #F5F2EA;
-  }
-
-  .roots-col:hover .roots-heading {
-    color: #1A1A17;
-  }
-
-  .roots-col:hover .roots-text {
-    color: rgba(26, 26, 23, 0.92);
-  }
-}
-
-/* Touch devices do not expose hover. Keep the same feedback while a card is
-   pressed, rather than relying on a desktop-preview-only hover capability. */
-@media (hover: none) {
-  .purpose-card,
-  .roots-col,
-  .standard-card,
-  .programme-detail-card,
-  .sponsor-offerings-cards .sponsor-card,
-  .safeguarding-item,
-  .article-aside,
-  .home-page .intro-card,
-  .home-page .trials-card,
-  .home-page .sponsor-card,
-  .news-card {
-    -webkit-tap-highlight-color: transparent;
-    transition: background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
-  }
-
-  .purpose-card:active,
-  .roots-col:active,
-  .standard-card:active,
-  .programme-detail-card:active,
-  .sponsor-offerings-cards .sponsor-card:active,
-  .safeguarding-item:active,
-  .article-aside:active,
-  .home-page .intro-card:active,
-  .home-page .trials-card:active,
-  .home-page .sponsor-card:active,
-  .news-card:active {
-    background: #D99423;
-    border-color: #D99423;
-    box-shadow: 0 10px 22px rgba(184, 119, 24, 0.18);
-  }
-
-  .purpose-card:active::before {
-    background: #F5F2EA;
-  }
-
-  .purpose-card:active .purpose-label,
-  .roots-col:active .roots-number,
-  .standard-card:active .standard-number,
-  .programme-detail-card:active .programme-detail-number,
-  .programme-detail-card:active .programme-field-label,
-  .sponsor-offerings-cards .sponsor-card:active .sponsor-card-number,
-  .safeguarding-item:active .label-small,
-  .article-aside:active .aside-heading,
-  .article-aside:active .aside-label,
-  .home-page .intro-card:active .card-number,
-  .home-page .trials-card:active .trials-card-label,
-  .home-page .sponsor-card:active .sponsor-card-number,
-  .news-card:active .news-tag-plain,
-  .news-card:active .news-read-more {
-    color: #F5F2EA;
-  }
-
-  .article-aside:active .aside-btn,
-  .news-card:active .news-tag {
-    background: #F5F2EA;
-    color: #1A1A17;
-  }
-
-  .purpose-card:active .purpose-card-heading,
-  .roots-col:active .roots-heading,
-  .standard-card:active .standard-heading,
-  .programme-detail-card:active .programme-detail-heading,
-  .programme-detail-card:active .programme-detail-meta,
-  .programme-detail-card:active .programme-detail-text,
-  .programme-detail-card:active .programme-field-text,
-  .sponsor-offerings-cards .sponsor-card:active .sponsor-card-heading,
-  .safeguarding-item:active .mission-text,
-  .safeguarding-item:active .inline-link,
-  .article-aside:active .aside-text,
-  .home-page .intro-card:active .card-heading,
-  .home-page .trials-card:active .trials-card-heading,
-  .home-page .sponsor-card:active .sponsor-card-heading,
-  .news-card:active .news-card-heading {
-    color: #1A1A17;
-  }
-
-  .purpose-card:active .purpose-card-text,
-  .roots-col:active .roots-text,
-  .standard-card:active .standard-text,
-  .sponsor-offerings-cards .sponsor-card:active .sponsor-list li,
-  .home-page .intro-card:active .card-text,
-  .home-page .trials-card:active .trials-card-text,
-  .home-page .sponsor-card:active .sponsor-list li,
-  .news-card:active .news-card-text {
-    color: rgba(26, 26, 23, 0.92);
-  }
-
-  .programme-detail-card:active .programme-detail-top,
-  .programme-detail-card:active .programme-field,
-  .article-aside:active .aside-field {
-    border-color: rgba(245, 242, 234, 0.62);
-  }
-
-  .sponsor-offerings-cards .sponsor-card:active .sponsor-list li::before,
-  .home-page .sponsor-card:active .sponsor-list li::before {
-    background: #F5F2EA;
-  }
-
-  .news-card:active .news-read-more .btn-arrow {
-    transform: translateX(4px);
-  }
-}
-
-/* Preserve the Figma mobile philosophy rhythm while that row is pressed. */
-@media (max-width: 768px) and (hover: none) {
-  .roots-col:active {
-    width: 100%;
-    justify-self: center;
-    margin-inline: auto;
-    padding: 27.25px 22px 28px;
-    border-radius: 8px;
   }
 }
 

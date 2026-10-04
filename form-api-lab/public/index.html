@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Form API Learning Lab</title>
+    <style>
+      :root { font-family: Inter, system-ui, sans-serif; color: #16213e; background: #f5f7fb; }
+      body { max-width: 780px; margin: 0 auto; padding: 36px 20px 72px; }
+      .card { background: white; border: 1px solid #dbe2ef; border-radius: 14px; padding: 24px; margin-top: 20px; box-shadow: 0 4px 14px #18203d0d; }
+      label { display: block; font-weight: 700; margin-top: 16px; }
+      input { box-sizing: border-box; width: 100%; margin-top: 6px; padding: 11px; border: 1px solid #aab6cf; border-radius: 8px; font: inherit; }
+      button { margin-top: 22px; border: 0; border-radius: 8px; padding: 12px 16px; background: #0b5fff; color: white; font: inherit; font-weight: 700; cursor: pointer; }
+      button:disabled { opacity: .6; cursor: wait; }
+      #status { min-height: 24px; font-weight: 600; }
+      .error { color: #a51717; } .success { color: #087443; }
+      code, pre { background: #edf1f7; border-radius: 6px; } code { padding: 2px 5px; } pre { padding: 14px; overflow: auto; white-space: pre-wrap; }
+      .note { color: #4b5b76; }
+    </style>
+  </head>
+  <body>
+    <h1>Form API Learning Lab</h1>
+    <p>This safe local exercise follows the same request flow as the QueueReceipts demo form. No real email is sent and it cannot reach the live company API.</p>
+
+    <main class="card">
+      <h2>1. Submit a test lead</h2>
+      <form id="demo-form" novalidate>
+        <label for="contact-name">Contact name</label>
+        <input id="contact-name" name="contactName" autocomplete="name" maxlength="100" required />
+
+        <label for="work-email">Work email</label>
+        <input id="work-email" name="workEmail" type="email" autocomplete="email" maxlength="255" required />
+
+        <label for="store-brand">Organisation</label>
+        <input id="store-brand" name="storeBrand" autocomplete="organization" maxlength="150" required />
+
+        <button type="submit">Send local test</button>
+        <p id="status" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <section class="card">
+      <h2>2. Inspect the simulated inbox</h2>
+      <p class="note">In production, this step would be your actual email provider. Here, it lets you see exactly what the API would send without needing an account or API key.</p>
+      <button id="refresh-outbox" type="button">Refresh local outbox</button>
+      <pre id="outbox">No requests yet.</pre>
+    </section>
+
+    <section class="card">
+      <h2>What the browser sends</h2>
+      <pre>{
+  "contactName": "...",
+  "workEmail": "...",
+  "storeBrand": "...",
+  "recaptchaToken": "local-test-token"
+}</pre>
+      <p class="note">The final field is only a local simulation. A real production API verifies a fresh reCAPTCHA token with Google using a secret that never appears in browser code.</p>
+    </section>
+    <script src="/app.js"></script>
+  </body>
+</html>

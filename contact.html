@@ -85,7 +85,12 @@
       <p class="contact-aside-note">Looking to try out? <a href="register.html" class="inline-link">Register for a trial</a> instead and we will come to you with trial dates.</p>
     </aside>
 
-    <form class="contact-form" action="mailto:operations@limitlessreachfa.com" method="post" enctype="text/plain">
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="7293081a-3692-49bb-a424-d1ee994d93fd">
+      <input type="hidden" name="subject" value="New contact enquiry — Limitless Reach FA">
+      <input type="hidden" name="from_name" value="Limitless Reach Football Academy">
+      <input type="hidden" name="form_type" value="Contact enquiry">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
       <div class="form-group">
         <label class="form-label" for="topic">What Is Your Enquiry About? *</label>
         <select id="topic" name="topic" class="form-select" required>
@@ -134,6 +139,7 @@
         <textarea id="message" name="message" class="form-textarea" placeholder="How can we help?" required></textarea>
       </div>
 
+      <p class="form-status" role="status" aria-live="polite" hidden></p>
       <div class="form-submit-row">
         <button type="submit" class="btn-submit">Send Message <span class="btn-arrow">&rarr;</span></button>
         <p class="form-submit-note">We reply within a few working days.</p>
@@ -206,6 +212,7 @@
 </footer>
 
 <script src="js/main.js?v=20260918-navigation"></script>
+<script src="js/forms.js?v=20261004-web3forms"></script>
 
 </body>
 </html>
