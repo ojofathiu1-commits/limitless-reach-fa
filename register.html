@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261004-mobile-date">
+<link rel="stylesheet" href="css/style.css?v=20261004-date-input">
 </head>
 <body>
 
@@ -73,12 +73,15 @@
 
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="dob">Date of Birth *</label>
-              <input type="date" id="dob" name="dob" class="field-input" required>
+              <label class="field-label" for="dob-display">Date of Birth *</label>
+              <div class="date-field">
+                <input type="text" id="dob-display" class="field-input field-input--date" placeholder="dd/mm/yyyy" autocomplete="bday" inputmode="numeric" maxlength="10" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" title="Enter the date as dd/mm/yyyy." required>
+                <input type="date" id="dob" name="dob" class="date-field-native" data-date-display="dob-display" tabindex="-1" aria-hidden="true">
+              </div>
             </div>
             <div class="field-group">
               <label class="field-label" for="age">Age *</label>
-              <input type="number" id="age" name="age" class="field-input" min="0" required>
+              <input type="number" id="age" name="age" class="field-input" min="0" max="120" step="1" inputmode="numeric" required>
             </div>
           </div>
 
@@ -113,13 +116,10 @@
               <label class="field-label" for="playing-level">Current Playing Level</label>
               <select id="playing-level" name="playing-level" class="field-select">
                 <option value="" disabled selected>Select</option>
-                <option value="beginner">Beginner / New to organised football</option>
-                <option value="recreational">Recreational football</option>
-                <option value="school">School football</option>
-                <option value="grassroots-club">Grassroots club football</option>
-                <option value="academy">Football academy</option>
-                <option value="competitive">Competitive / league football</option>
-                <option value="other">Other</option>
+                <option value="foundation">Foundation</option>
+                <option value="youth">Youth</option>
+                <option value="development">Development</option>
+                <option value="amateur">Amateur</option>
               </select>
             </div>
           </div>
@@ -155,27 +155,27 @@
           <span class="form-legend-heading">Parent / Guardian Details</span>
         </legend>
 
-        <p class="fieldset-note">Required for players under 18.</p>
+        <p class="fieldset-note" id="guardian-requirement-note">Required for players under 18.</p>
 
         <div class="fieldset-rows">
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="guardian-name">Parent / Guardian Full Name *</label>
+              <label class="field-label" for="guardian-name">Parent / Guardian Full Name <span class="guardian-required-marker" data-guardian-required-for="guardian-name">*</span></label>
               <input type="text" id="guardian-name" name="guardian-name" class="field-input" required>
             </div>
             <div class="field-group">
-              <label class="field-label" for="guardian-relationship">Relationship to Player *</label>
+              <label class="field-label" for="guardian-relationship">Relationship to Player <span class="guardian-required-marker" data-guardian-required-for="guardian-relationship">*</span></label>
               <input type="text" id="guardian-relationship" name="guardian-relationship" class="field-input" placeholder="e.g. Mother, Father, Guardian" required>
             </div>
           </div>
 
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="guardian-phone">Phone Number *</label>
-              <input type="tel" id="guardian-phone" name="guardian-phone" class="field-input" required>
+              <label class="field-label" for="guardian-phone">Phone Number <span class="guardian-required-marker" data-guardian-required-for="guardian-phone">*</span></label>
+              <input type="tel" id="guardian-phone" name="guardian-phone" class="field-input" pattern="\+?[0-9][0-9 ()-]{6,19}" title="Enter a valid phone number." required>
             </div>
             <div class="field-group">
-              <label class="field-label" for="guardian-email">Email Address *</label>
+              <label class="field-label" for="guardian-email">Email Address <span class="guardian-required-marker" data-guardian-required-for="guardian-email">*</span></label>
               <input type="email" id="guardian-email" name="email" class="field-input" required>
             </div>
           </div>
@@ -220,7 +220,7 @@
 
           <div class="field-group">
             <label class="field-label" for="emergency-number">Emergency Contact Number *</label>
-            <input type="tel" id="emergency-number" name="emergency-number" class="field-input" required>
+            <input type="tel" id="emergency-number" name="emergency-number" class="field-input" pattern="\+?[0-9][0-9 ()-]{6,19}" title="Enter a valid phone number." required>
           </div>
         </div>
       </fieldset>
@@ -288,6 +288,13 @@
             <label class="field-label" for="heard-about">How Did You Hear About Limitless Reach?</label>
             <select id="heard-about" name="heard-about" class="field-select">
               <option value="" disabled selected>Select</option>
+              <option value="instagram">Instagram</option>
+              <option value="youtube">YouTube</option>
+              <option value="tiktok">TikTok</option>
+              <option value="facebook">Facebook</option>
+              <option value="x">X (Twitter)</option>
+              <option value="friend-or-family">Friend or family</option>
+              <option value="other">Other</option>
             </select>
           </div>
 
@@ -418,9 +425,17 @@
             <input type="text" id="declare-signature" name="declare-signature" class="field-input field-input--lg field-input--signature" placeholder="Type your full name" required>
           </div>
           <div class="field-group field-group--narrow">
-            <label class="field-label" for="declare-date">Date *</label>
-            <input type="date" id="declare-date" name="declare-date" class="field-input field-input--lg" required>
+            <label class="field-label" for="declare-date-display">Date *</label>
+            <div class="date-field date-field--lg">
+              <input type="text" id="declare-date-display" class="field-input field-input--date field-input--lg" placeholder="dd/mm/yyyy" inputmode="numeric" maxlength="10" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" title="Enter the date as dd/mm/yyyy." required>
+              <input type="date" id="declare-date" name="declare-date" class="date-field-native" data-date-display="declare-date-display" tabindex="-1" aria-hidden="true">
+            </div>
           </div>
+        </div>
+
+        <div class="signature-preview" id="signature-preview" aria-live="polite" hidden>
+          <span class="signature-preview-label">Typed Signature Preview</span>
+          <span class="signature-preview-value" id="signature-preview-value"></span>
         </div>
 
         <p class="fieldset-note">For players under 18, this declaration must be completed by a parent or legal guardian.</p>
@@ -522,7 +537,7 @@
 </footer>
 
 <script src="js/main.js?v=20260918-navigation"></script>
-<script src="js/forms.js?v=20261004-web3forms"></script>
+<script src="js/forms.js?v=20261004-guardian-age"></script>
 
 </body>
 </html>

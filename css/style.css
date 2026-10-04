@@ -1870,6 +1870,7 @@ article[id] {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 11.5px;
+  line-height: 18px;
   letter-spacing: 1.495px;
   text-transform: uppercase;
   color: #0C0C0A;
@@ -1888,7 +1889,7 @@ article[id] {
 .field-input,
 .field-select {
   width: 100%;
-  height: 47px;
+  height: 48.5px;
   padding: 13px 14px;
   background: #F5F2EA;
   border: 1px solid rgba(12, 12, 10, 0.22);
@@ -1909,26 +1910,48 @@ article[id] {
   border-color: #D99423;
 }
 
-/* Safari on iPhone centres and adds extra internal spacing to date values.
-   Normalise its native parts so date controls match the other form fields. */
-.field-input[type='date'] {
-  text-align: left;
+/* A stable visual date field sits above the native picker. This keeps the
+   Figma dimensions on every mobile browser while retaining native date entry. */
+.date-field {
+  position: relative;
+  width: 100%;
+  height: 48.5px;
 }
 
-.field-input[type='date']::-webkit-date-and-time-value {
-  min-height: 1lh;
-  text-align: inherit;
+.date-field--lg {
+  height: 52px;
 }
 
-.field-input[type='date']::-webkit-datetime-edit {
-  display: inline-flex;
+.date-field .field-input--date {
+  height: 100%;
+  padding-right: 47px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='15' viewBox='0 0 16 15' fill='none'%3E%3Crect x='1' y='2.25' width='14' height='11.75' rx='1.5' stroke='%236B6962' stroke-width='1.3'/%3E%3Cpath d='M4 1v3M12 1v3M1.5 6h13' stroke='%236B6962' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px 15px;
 }
 
-.field-input[type='date']::-webkit-datetime-edit-fields-wrapper,
-.field-input[type='date']::-webkit-datetime-edit-year-field,
-.field-input[type='date']::-webkit-datetime-edit-month-field,
-.field-input[type='date']::-webkit-datetime-edit-day-field {
-  padding-block: 0;
+.date-field-native {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 47px;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.date-field-native:focus,
+.date-field-native:focus-visible {
+  outline: none;
+}
+
+.date-field:focus-within .field-input--date {
+  border-color: #D99423;
+  outline: none;
 }
 
 .field-select {
@@ -1959,6 +1982,33 @@ article[id] {
 
 .field-input--signature::placeholder {
   color: #757575;
+}
+
+.signature-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  padding: 10px 0 6px;
+  border-bottom: 2px solid #0C0C0A;
+}
+
+.signature-preview-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: #6B6962;
+}
+
+.signature-preview-value {
+  min-height: 36px;
+  font-family: 'Brush Script MT', 'Segoe Script', cursive;
+  font-size: 31px;
+  line-height: 36px;
+  color: #0C0C0A;
 }
 
 .radio-pill-group {
