@@ -1,4 +1,8 @@
-const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+const FORMSPREE_FORM_ID = 'mjygkyrq';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/' + FORMSPREE_FORM_ID;
+const RECAPTCHA_SITE_KEY = '6LfMncwsAAAAANskXc8qhix7-itJwvl47mOIAqeL';
+const RECAPTCHA_ACTION = 'submit';
+const RECAPTCHA_TIMEOUT_MS = 15000;
 const SUPPORT_EMAIL = 'operations@limitlessreachfa.com';
 
 const FORM_ENDPOINTS = [
@@ -6,22 +10,36 @@ const FORM_ENDPOINTS = [
     selector: '.contact-form',
     formType: 'Contact enquiry',
     emailSource: 'contact-info',
-    success: 'Thanks. Your message has reached us and we will reply within a few working days.'
+    confirm: {
+      name: 'name',
+      reply: 'contact-info'
+    }
   },
   {
     selector: '.register-main',
     formType: 'Trial registration',
-    success: 'Registration received. The team will contact you with your trial date, time and venue.'
+    confirm: {
+      name: 'declare-name',
+      player: 'player-name',
+      method: contactMethod,
+      detail: contactDetail
+    }
   },
   {
     selector: '.sponsor-enquiry-form',
     formType: 'Sponsorship enquiry',
-    success: 'Thanks. We will reply within a few working days with a tailored proposal.'
+    confirm: {
+      name: 'contact-name',
+      organisation: 'organisation',
+      reply: 'email'
+    }
   }
 ];
 
 const TRIMMABLE_TYPES = ['text', 'email', 'tel', 'url', 'search'];
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
+const MAX_NAME_WORDS = 6;
 
 function setFormStatus(form, message, state) {
   const toast = window.toast;
@@ -49,39 +67,39 @@ function setFormStatus(form, message, state) {
   status.hidden = false;
 }
 
-function labelFor(field) {
-  const group = field.closest('.field-group, .form-group, .consent-agree');
-  const label = group
-    ? group.querySelector('.field-label, .form-label, .consent-agree-label')
-    : null;
+function clearFormStatus(form) {
+  const status = form.querySelector('.form-status');
 
-  if (!label) {
-    return '';
+  if (status) {
+    status.hidden = true;
+    status.textContent = '';
   }
-
-  const text = label.textContent.replace(/\*/g, '').replace(/\s+/g, ' ').trim();
-
-  return text.length > 80 ? text.slice(0, 77).trim() + '...' : text;
 }
 
 function invalidMessage(field) {
-  const name = labelFor(field);
+  const validity = field.validity;
 
-  if (field.validity.customError) {
+  if (validity.customError) {
     return field.validationMessage;
   }
 
-  if (field.validity.typeMismatch) {
+  if (validity.valueMissing) {
+    return field.type === 'radio' || field.tagName === 'SELECT'
+      ? 'Please choose an option.'
+      : 'Please fill in this field.';
+  }
+
+  if (validity.typeMismatch) {
     return field.type === 'email'
       ? 'Please enter a valid email address.'
-      : 'Please check the format of ' + (name || 'this field') + '.';
+      : 'Please check the format of this field.';
   }
 
-  if (field.type === 'radio') {
-    return name ? 'Please answer: ' + name : 'Please answer all required questions.';
+  if (validity.patternMismatch && field.title) {
+    return field.title;
   }
 
-  return name ? 'Please complete: ' + name : 'Please complete all required fields.';
+  return field.validationMessage || 'Please check this field.';
 }
 
 function isPhoneNumber(value) {
@@ -122,12 +140,67 @@ function valueFrom(form, name) {
   return field && typeof field.value === 'string' ? field.value.trim() : '';
 }
 
-function normalisedName(value) {
+function nameWords(value) {
   return value
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
     .toLocaleLowerCase()
-    .replace(/[.'’`-]/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
+    .split(' ')
+    .filter(Boolean);
+}
+
+function hasNameWords(value) {
+  return nameWords(value).length > 0;
+}
+
+function canBuildFrom(words, text, needed) {
+  if (!text) {
+    return needed <= 0;
+  }
+
+  return words.some(function (word, index) {
+    if (!text.startsWith(word)) {
+      return false;
+    }
+
+    const remaining = words.filter(function (other, position) {
+      return position !== index;
+    });
+
+    return canBuildFrom(remaining, text.slice(word.length), needed - 1);
+  });
+}
+
+function namesMatch(reference, candidate) {
+  const referenceWords = nameWords(reference);
+  const candidateWords = nameWords(candidate);
+  const referenceText = referenceWords.join('');
+  const candidateText = candidateWords.join('');
+
+  if (!referenceText || !candidateText) {
+    return false;
+  }
+
+  if (referenceText === candidateText) {
+    return true;
+  }
+
+  const needed = Math.min(2, referenceWords.length);
+
+  return (
+    (referenceWords.length <= MAX_NAME_WORDS &&
+      canBuildFrom(referenceWords, candidateText, needed)) ||
+    (candidateWords.length <= MAX_NAME_WORDS &&
+      canBuildFrom(candidateWords, referenceText, needed))
+  );
+}
+
+function matchesAnyName(names, value) {
+  return names.some(function (name) {
+    return namesMatch(name, value);
+  });
 }
 
 function dateFromIso(value) {
@@ -168,9 +241,7 @@ function syncGuardianRequirements(form) {
   const isMinor = playerIsUnder18(form, today);
   const guardianFields = [
     'guardian-name',
-    'guardian-relationship',
-    'guardian-phone',
-    'guardian-email'
+    'guardian-relationship'
   ];
 
   guardianFields.forEach(function (id) {
@@ -287,23 +358,21 @@ function validateTrialForm(form) {
     );
   }
 
-  const playerName = normalisedName(valueFrom(form, 'player-name'));
-  const guardianName = normalisedName(valueFrom(form, 'guardian-name'));
-  const declarationName = normalisedName(valueFrom(form, 'declare-name'));
-  const signature = normalisedName(valueFrom(form, 'declare-signature'));
+  const playerName = valueFrom(form, 'player-name');
+  const guardianName = valueFrom(form, 'guardian-name');
+  const declarationName = valueFrom(form, 'declare-name');
+  const signature = valueFrom(form, 'declare-signature');
   const declarationField = form.elements['declare-name'];
   const signatureField = form.elements['declare-signature'];
   const isMinor = playerIsUnder18(form, today);
 
   syncGuardianRequirements(form);
-  const permittedNames = isMinor
-    ? [guardianName].filter(Boolean)
-    : [playerName, guardianName].filter(Boolean);
+  const permittedNames = (isMinor ? [guardianName] : [playerName, guardianName]).filter(hasNameWords);
   const signerDescription = isMinor ? 'parent or guardian' : 'player or guardian';
 
   if (declarationField) {
     declarationField.setCustomValidity(
-      declarationName && permittedNames.length && permittedNames.indexOf(declarationName) === -1
+      declarationName && permittedNames.length && !matchesAnyName(permittedNames, declarationName)
         ? 'Enter the ' + signerDescription + ' name supplied above.'
         : ''
     );
@@ -311,7 +380,7 @@ function validateTrialForm(form) {
 
   if (signatureField) {
     signatureField.setCustomValidity(
-      signature && permittedNames.length && permittedNames.indexOf(signature) === -1
+      signature && permittedNames.length && !matchesAnyName(permittedNames, signature)
         ? 'Signature must match the ' + signerDescription + ' name supplied above.'
         : ''
     );
@@ -341,32 +410,123 @@ function validateTrialForm(form) {
   );
 }
 
-function firstInvalidField(form) {
-  const fields = Array.prototype.slice.call(
-    form.querySelectorAll('input, select, textarea')
-  );
-
-  for (let i = 0; i < fields.length; i++) {
-    const field = fields[i];
-
-    if (field.tagName === 'TEXTAREA' || TRIMMABLE_TYPES.indexOf(field.type) !== -1) {
+function prepareFields(form, trim) {
+  form.querySelectorAll('input, select, textarea').forEach(function (field) {
+    if (trim && (field.tagName === 'TEXTAREA' || TRIMMABLE_TYPES.indexOf(field.type) !== -1)) {
       field.value = field.value.trim();
     }
 
     validateFieldValue(field);
-  }
+  });
 
   validateTrialForm(form);
+}
 
-  for (let i = 0; i < fields.length; i++) {
-    const field = fields[i];
+function visibleControl(field) {
+  return field.dataset.dateDisplay ? document.getElementById(field.dataset.dateDisplay) : field;
+}
 
-    if (!field.checkValidity()) {
-      return field;
+function errorAnchor(field) {
+  return field.closest('.radio-pill-group, .date-field') || field;
+}
+
+function controlsWithin(anchor) {
+  return anchor.matches('input, select, textarea')
+    ? [anchor]
+    : anchor.querySelectorAll('input, select, textarea');
+}
+
+function collectProblems(form) {
+  const problems = [];
+  const anchors = [];
+
+  form.querySelectorAll('input, select, textarea').forEach(function (field) {
+    if (field.checkValidity()) {
+      return;
     }
+
+    const anchor = errorAnchor(field);
+
+    if (anchors.indexOf(anchor) !== -1) {
+      return;
+    }
+
+    anchors.push(anchor);
+    problems.push({
+      anchor: anchor,
+      control: visibleControl(field),
+      message: invalidMessage(field)
+    });
+  });
+
+  return problems;
+}
+
+function showFieldError(problem) {
+  let error = problem.anchor.previousElementSibling;
+
+  if (!error || !error.classList.contains('field-error')) {
+    error = document.createElement('p');
+    error.className = 'field-error';
+    error.id = (problem.control.id || problem.control.name) + '-error';
+    problem.anchor.insertAdjacentElement('beforebegin', error);
   }
 
-  return null;
+  error.textContent = problem.message;
+
+  controlsWithin(problem.anchor).forEach(function (control) {
+    control.setAttribute('aria-invalid', 'true');
+    control.setAttribute('aria-describedby', error.id);
+  });
+}
+
+function clearFieldError(error) {
+  controlsWithin(error.nextElementSibling).forEach(function (control) {
+    control.removeAttribute('aria-invalid');
+    control.removeAttribute('aria-describedby');
+  });
+
+  error.remove();
+}
+
+function renderFieldErrors(form, problems) {
+  const anchors = problems.map(function (problem) {
+    return problem.anchor;
+  });
+
+  form.querySelectorAll('.field-error').forEach(function (error) {
+    if (anchors.indexOf(error.nextElementSibling) === -1) {
+      clearFieldError(error);
+    }
+  });
+
+  problems.forEach(showFieldError);
+}
+
+function refreshFieldErrors(form) {
+  const shown = Array.from(form.querySelectorAll('.field-error')).map(function (error) {
+    return error.nextElementSibling;
+  });
+
+  if (!shown.length) {
+    return;
+  }
+
+  prepareFields(form, false);
+
+  const problems = collectProblems(form).filter(function (problem) {
+    return shown.indexOf(problem.anchor) !== -1;
+  });
+
+  renderFieldErrors(form, problems);
+}
+
+function focusProblem(problem) {
+  problem.anchor.previousElementSibling.scrollIntoView({
+    behavior: REDUCED_MOTION.matches ? 'auto' : 'smooth',
+    block: 'center'
+  });
+  problem.control.focus({ preventScroll: true });
 }
 
 function formatDateForDisplay(value) {
@@ -443,32 +603,12 @@ function wireDateDisplays() {
   });
 }
 
-function wireSignaturePreview() {
-  const signature = document.getElementById('declare-signature');
-  const preview = document.getElementById('signature-preview');
-  const previewValue = document.getElementById('signature-preview-value');
-
-  if (!signature || !preview || !previewValue) {
-    return;
-  }
-
-  const syncPreview = function () {
-    const value = signature.value.trim();
-
-    previewValue.textContent = value;
-    preview.hidden = !value;
-  };
-
-  signature.addEventListener('input', syncPreview);
-  syncPreview();
-}
-
 function addSubmissionContext(formData, form, config) {
   formData.set('form_type', config.formType);
   formData.set('page_url', window.location.href);
   formData.set('submitted_at', new Date().toISOString());
 
-  // Web3Forms uses an `email` field as the notification reply-to address.
+  // Formspree uses an `email` field as the notification reply-to address.
   // The contact form accepts an email address or phone number in one field,
   // so add an email reply-to only when the visitor supplied an email address.
   if (config.emailSource) {
@@ -481,7 +621,7 @@ function addSubmissionContext(formData, form, config) {
 }
 
 function messageForStatus(status) {
-  if (status === 400) {
+  if (status === 400 || status === 422) {
     return 'Please check your details and try again.';
   }
 
@@ -496,6 +636,126 @@ function messageForStatus(status) {
   return 'Something went wrong. Please try again or email ' + SUPPORT_EMAIL + '.';
 }
 
+function contactMethod(form) {
+  const method = selectedRadio(form, 'contact-method');
+  const phrases = { phone: 'phone call on', whatsapp: 'WhatsApp on', email: 'email at' };
+
+  return method ? phrases[method.value] : '';
+}
+
+function contactDetail(form) {
+  const method = selectedRadio(form, 'contact-method');
+
+  return valueFrom(form, method && method.value === 'email' ? 'email' : 'phone');
+}
+
+function fillConfirmation(form, panel, answers) {
+  panel.querySelectorAll('[data-confirm]').forEach(function (slot) {
+    const source = answers[slot.dataset.confirm];
+
+    slot.textContent = typeof source === 'function' ? source(form) : valueFrom(form, source);
+  });
+}
+
+function showConfirmation(form, config) {
+  const panel = form.querySelector('.form-confirmation');
+
+  fillConfirmation(form, panel, config.confirm);
+  clearFormStatus(form);
+
+  form.reset();
+  syncGuardianRequirements(form);
+  form.classList.add('form-is-complete');
+
+  form.scrollIntoView({
+    behavior: REDUCED_MOTION.matches ? 'auto' : 'smooth',
+    block: 'start'
+  });
+  panel.focus({ preventScroll: true });
+}
+
+function wireConfirmationReset(form) {
+  const button = form.querySelector('[data-confirm-reset]');
+
+  if (!button) {
+    return;
+  }
+
+  button.addEventListener('click', function () {
+    form.classList.remove('form-is-complete');
+
+    const firstField = form.querySelector('.field-input, .form-input, .form-select');
+
+    if (firstField) {
+      firstField.focus();
+    }
+  });
+}
+
+let recaptchaLoading = null;
+
+function loadRecaptcha() {
+  if (!RECAPTCHA_SITE_KEY) {
+    return Promise.resolve();
+  }
+
+  if (recaptchaLoading) {
+    return recaptchaLoading;
+  }
+
+  recaptchaLoading = new Promise(function (resolve, reject) {
+    const script = document.createElement('script');
+
+    script.src = 'https://www.google.com/recaptcha/api.js?render=' + RECAPTCHA_SITE_KEY;
+    script.async = true;
+
+    script.onload = function () {
+      if (window.grecaptcha && window.grecaptcha.ready) {
+        window.grecaptcha.ready(resolve);
+        return;
+      }
+
+      recaptchaLoading = null;
+      reject(new Error('recaptcha-unavailable'));
+    };
+
+    script.onerror = function () {
+      recaptchaLoading = null;
+      reject(new Error('recaptcha-unavailable'));
+    };
+
+    document.head.appendChild(script);
+  });
+
+  return recaptchaLoading;
+}
+
+function withTimeout(promise, milliseconds) {
+  return Promise.race([
+    promise,
+    new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        reject(new Error('timeout'));
+      }, milliseconds);
+    })
+  ]);
+}
+
+function recaptchaToken() {
+  if (!RECAPTCHA_SITE_KEY) {
+    return Promise.resolve('');
+  }
+
+  return withTimeout(
+    loadRecaptcha().then(function () {
+      return window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: RECAPTCHA_ACTION });
+    }),
+    RECAPTCHA_TIMEOUT_MS
+  ).catch(function () {
+    throw Object.assign(new Error('recaptcha-unavailable'), { status: 503 });
+  });
+}
+
 function wireForm(config) {
   const form = document.querySelector(config.selector);
 
@@ -504,10 +764,18 @@ function wireForm(config) {
   }
 
   form.setAttribute('novalidate', '');
+  wireConfirmationReset(form);
 
   const submitButton = form.querySelector('button[type="submit"]');
-  const submitLabel = submitButton ? submitButton.innerHTML : '';
   let sending = false;
+
+  form.addEventListener('input', function () {
+    refreshFieldErrors(form);
+  });
+
+  form.addEventListener('change', function () {
+    refreshFieldErrors(form);
+  });
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -516,11 +784,15 @@ function wireForm(config) {
       return;
     }
 
-    const invalid = firstInvalidField(form);
+    clearFormStatus(form);
+    prepareFields(form, true);
 
-    if (invalid) {
-      setFormStatus(form, invalidMessage(invalid), 'error');
-      invalid.focus();
+    const problems = collectProblems(form);
+
+    renderFieldErrors(form, problems);
+
+    if (problems.length) {
+      focusProblem(problems[0]);
       return;
     }
 
@@ -528,19 +800,26 @@ function wireForm(config) {
 
     if (submitButton) {
       submitButton.disabled = true;
-      submitButton.textContent = 'Sending...';
+      submitButton.classList.add('is-sending');
     }
 
-    setFormStatus(form, 'Sending your request...', null);
+    setFormStatus(form, 'Sending your request...', 'sending');
 
     const formData = new FormData(form);
     addSubmissionContext(formData, form, config);
 
-    fetch(form.action || WEB3FORMS_ENDPOINT, {
-      method: form.method || 'POST',
-      body: formData,
-      headers: { Accept: 'application/json' }
-    })
+    recaptchaToken()
+      .then(function (token) {
+        if (token) {
+          formData.set('g-recaptcha-response', token);
+        }
+
+        return fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' }
+        });
+      })
       .then(function (response) {
         return response
           .json()
@@ -548,10 +827,10 @@ function wireForm(config) {
             return {};
           })
           .then(function (data) {
-            if (!response.ok || !data.success) {
+            if (!response.ok || !data.ok) {
               throw Object.assign(new Error('request-failed'), {
                 status: response.status,
-                message: data.message || 'request-failed'
+                message: data.error || 'request-failed'
               });
             }
 
@@ -559,8 +838,7 @@ function wireForm(config) {
           });
       })
       .then(function () {
-        setFormStatus(form, config.success, 'success');
-        form.reset();
+        showConfirmation(form, config);
       })
       .catch(function (error) {
         setFormStatus(
@@ -576,7 +854,7 @@ function wireForm(config) {
 
         if (submitButton) {
           submitButton.disabled = false;
-          submitButton.innerHTML = submitLabel;
+          submitButton.classList.remove('is-sending');
         }
       });
   });
@@ -584,5 +862,5 @@ function wireForm(config) {
 
 wireDateDisplays();
 wireGuardianRequirements();
-wireSignaturePreview();
 FORM_ENDPOINTS.forEach(wireForm);
+loadRecaptcha().catch(function () {});

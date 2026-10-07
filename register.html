@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trial Registration &amp; Consent Form — Limitless Reach Football Academy</title>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261004-nav-reveal">
+<link rel="stylesheet" href="css/style.css?v=20261007-recaptcha">
 </head>
 <body>
 
@@ -48,12 +51,10 @@
 
 <section class="register-body-section">
   <div class="register-grid">
-    <form class="register-main" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="7293081a-3692-49bb-a424-d1ee994d93fd">
-      <input type="hidden" name="subject" value="New trial registration — Limitless Reach FA">
-      <input type="hidden" name="from_name" value="Limitless Reach Football Academy">
+    <form class="register-main" method="POST">
+      <input type="hidden" name="_subject" value="New trial registration — Limitless Reach FA">
       <input type="hidden" name="form_type" value="Trial registration">
-      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
       <div class="register-intro">
         <p class="register-intro-text">For players under the age of 18, the form must be completed or approved by a parent or legal guardian.</p>
         <p class="register-intro-text">The information provided will be used to manage the player&rsquo;s trial, communicate important information and help us provide a safe environment. Personal and medical information will be treated confidentially and only accessed where necessary.</p>
@@ -168,31 +169,39 @@
               <input type="text" id="guardian-relationship" name="guardian-relationship" class="field-input" placeholder="e.g. Mother, Father, Guardian" required>
             </div>
           </div>
+        </div>
+      </fieldset>
 
+      <fieldset class="form-fieldset">
+        <legend class="form-legend">
+          <span class="form-legend-heading">Contact Details</span>
+        </legend>
+
+        <div class="fieldset-rows">
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="guardian-phone">Phone Number <span class="guardian-required-marker" data-guardian-required-for="guardian-phone">*</span></label>
-              <input type="tel" id="guardian-phone" name="guardian-phone" class="field-input" pattern="\+?[0-9][0-9 ()-]{6,19}" title="Enter a valid phone number." required>
+              <label class="field-label" for="contact-phone">Phone Number *</label>
+              <input type="tel" id="contact-phone" name="phone" class="field-input" pattern="\+?[0-9][0-9 ()-]{6,19}" title="Enter a valid phone number." required>
             </div>
             <div class="field-group">
-              <label class="field-label" for="guardian-email">Email Address <span class="guardian-required-marker" data-guardian-required-for="guardian-email">*</span></label>
-              <input type="email" id="guardian-email" name="email" class="field-input" required>
+              <label class="field-label" for="contact-email">Email Address *</label>
+              <input type="email" id="contact-email" name="email" class="field-input" required>
             </div>
           </div>
 
           <div class="field-group">
-            <label class="field-label">Preferred Contact Method</label>
+            <label class="field-label">Preferred Contact Method *</label>
             <div class="radio-pill-group">
               <label class="radio-pill">
-                <input type="radio" name="contact-method" value="phone">
+                <input type="radio" name="contact-method" value="phone" required>
                 <span>Phone call</span>
               </label>
               <label class="radio-pill">
-                <input type="radio" name="contact-method" value="whatsapp">
+                <input type="radio" name="contact-method" value="whatsapp" required>
                 <span>WhatsApp</span>
               </label>
               <label class="radio-pill">
-                <input type="radio" name="contact-method" value="email">
+                <input type="radio" name="contact-method" value="email" required>
                 <span>Email</span>
               </label>
             </div>
@@ -433,11 +442,6 @@
           </div>
         </div>
 
-        <div class="signature-preview" id="signature-preview" aria-live="polite" hidden>
-          <span class="signature-preview-label">Typed Signature Preview</span>
-          <span class="signature-preview-value" id="signature-preview-value"></span>
-        </div>
-
         <p class="fieldset-note">For players under 18, this declaration must be completed by a parent or legal guardian.</p>
       </fieldset>
 
@@ -446,6 +450,19 @@
         <p class="register-cta-text">Once your registration has been reviewed, the Limitless Reach team will contact you with your trial date, time, venue and arrival instructions.</p>
         <p class="form-status" role="status" aria-live="polite" hidden></p>
         <button type="submit" class="btn-primary">Submit Trial Registration <span class="btn-arrow">&rarr;</span></button>
+      </div>
+
+      <div class="form-confirmation" role="region" aria-labelledby="register-confirmation-title" tabindex="-1">
+        <span class="form-confirmation-tick" aria-hidden="true"></span>
+        <div class="form-legend">
+          <span class="form-legend-eyebrow">Registration received</span>
+          <h2 class="form-legend-heading" id="register-confirmation-title">Thanks, <span data-confirm="name"></span></h2>
+        </div>
+        <p class="form-confirmation-text">We have received the trial registration for <strong data-confirm="player"></strong>.</p>
+        <p class="form-confirmation-text">Once your registration has been reviewed, the Limitless Reach team will contact you with your trial date, time, venue and arrival instructions. You asked to be contacted by <span data-confirm="method"></span> <strong data-confirm="detail"></strong>.</p>
+        <div class="form-confirmation-actions">
+          <button type="button" class="btn-outline-dark" data-confirm-reset>Register another player</button>
+        </div>
       </div>
     </form>
 
@@ -506,7 +523,8 @@
         <ul class="footer-list">
           <li><a href="mailto:operations@limitlessreachfa.com">operations@limitlessreachfa.com</a></li>
           <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
-          <li><a href="#">@limitlessreachfc</a></li>
+          <li><a href="https://www.instagram.com/limitlessreach_fa/" target="_blank" rel="noopener noreferrer">Instagram @limitlessreach_fa</a></li>
+          <li><a href="https://x.com/limitlessrfa" target="_blank" rel="noopener noreferrer">X @LimitlessRFA</a></li>
           <li>Bodija, Ibadan &middot; Oyo State</li>
         </ul>
       </div>
@@ -516,19 +534,10 @@
       <p class="footer-copyright">&copy; 2027 Limitless Reach Football Academy &middot; Ibadan, Nigeria</p>
 
       <div class="footer-social">
-        <a href="#" class="social-link" aria-label="Instagram">
+        <a href="https://www.instagram.com/limitlessreach_fa/" class="social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
           <img src="assets/instagram.svg" alt="">
         </a>
-        <a href="#" class="social-link" aria-label="YouTube">
-          <img src="assets/youtube.svg" alt="">
-        </a>
-        <a href="#" class="social-link" aria-label="TikTok">
-          <img src="assets/tiktok.svg" alt="">
-        </a>
-        <a href="#" class="social-link" aria-label="Facebook">
-          <img src="assets/facebook.svg" alt="">
-        </a>
-        <a href="#" class="social-link" aria-label="X">
+        <a href="https://x.com/limitlessrfa" class="social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer">
           <img src="assets/x.svg" alt="">
         </a>
       </div>
@@ -536,8 +545,8 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260918-navigation"></script>
-<script src="js/forms.js?v=20261004-guardian-age"></script>
+<script src="js/main.js?v=20261004-sponsor-scroll"></script>
+<script src="js/forms.js?v=20261007-recaptcha"></script>
 
 </body>
 </html>

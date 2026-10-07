@@ -49,6 +49,25 @@ if (navToggle && navLinks) {
   });
 }
 
+const sponsorTracks = document.querySelectorAll('.sponsors-track');
+
+sponsorTracks.forEach(function (track) {
+  function resumeSponsorScroll() {
+    track.classList.remove('is-interacting');
+  }
+
+  track.addEventListener('pointerdown', function (event) {
+    // On touch devices, pause only while the visitor is pressing a sponsor
+    // card. This avoids the sticky :hover state that can freeze a marquee.
+    if (event.pointerType !== 'mouse') {
+      track.classList.add('is-interacting');
+    }
+  });
+
+  track.addEventListener('pointercancel', resumeSponsorScroll);
+  window.addEventListener('pointerup', resumeSponsorScroll, { passive: true });
+});
+
 const mobileFieldSelector = '.form-input, .form-select, .form-textarea, .field-input, .field-select';
 let focusedMobileField = null;
 

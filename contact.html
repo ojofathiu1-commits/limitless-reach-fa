@@ -4,10 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Limitless Reach Football Academy</title>
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261004-nav-reveal">
+<link rel="stylesheet" href="css/style.css?v=20261007-recaptcha">
 </head>
 <body>
 
@@ -77,20 +80,22 @@
           <span class="contact-row-value">Bodija, Ibadan &middot; Oyo State</span>
         </div>
         <div class="contact-row">
-          <span class="contact-row-label">Social</span>
-          <span class="contact-row-value">@limitlessreachfc</span>
+          <span class="contact-row-label">Instagram</span>
+          <a href="https://www.instagram.com/limitlessreach_fa/" class="contact-row-value" target="_blank" rel="noopener noreferrer">@limitlessreach_fa</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-row-label">X</span>
+          <a href="https://x.com/limitlessrfa" class="contact-row-value" target="_blank" rel="noopener noreferrer">@LimitlessRFA</a>
         </div>
       </div>
 
       <p class="contact-aside-note">Looking to try out? <a href="register.html" class="inline-link">Register for a trial</a> instead and we will come to you with trial dates.</p>
     </aside>
 
-    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="7293081a-3692-49bb-a424-d1ee994d93fd">
-      <input type="hidden" name="subject" value="New contact enquiry — Limitless Reach FA">
-      <input type="hidden" name="from_name" value="Limitless Reach Football Academy">
+    <form class="contact-form" method="POST">
+      <input type="hidden" name="_subject" value="New contact enquiry — Limitless Reach FA">
       <input type="hidden" name="form_type" value="Contact enquiry">
-      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
       <div class="form-group">
         <label class="form-label" for="topic">What Is Your Enquiry About? *</label>
         <select id="topic" name="topic" class="form-select" required>
@@ -144,6 +149,18 @@
         <button type="submit" class="btn-submit">Send Message <span class="btn-arrow">&rarr;</span></button>
         <p class="form-submit-note">We reply within a few working days.</p>
       </div>
+
+      <div class="form-confirmation" role="region" aria-labelledby="contact-confirmation-title" tabindex="-1">
+        <span class="form-confirmation-tick" aria-hidden="true"></span>
+        <div class="form-legend">
+          <span class="form-legend-eyebrow">Message sent</span>
+          <h2 class="form-legend-heading" id="contact-confirmation-title">Thanks, <span data-confirm="name"></span></h2>
+        </div>
+        <p class="form-confirmation-text">Your message has reached us and we will reply to <strong data-confirm="reply"></strong> within a few working days.</p>
+        <div class="form-confirmation-actions">
+          <button type="button" class="btn-outline-dark" data-confirm-reset>Send another message</button>
+        </div>
+      </div>
     </form>
   </div>
 </section>
@@ -181,7 +198,8 @@
         <ul class="footer-list">
           <li><a href="mailto:operations@limitlessreachfa.com">operations@limitlessreachfa.com</a></li>
           <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
-          <li><a href="#">@limitlessreachfc</a></li>
+          <li><a href="https://www.instagram.com/limitlessreach_fa/" target="_blank" rel="noopener noreferrer">Instagram @limitlessreach_fa</a></li>
+          <li><a href="https://x.com/limitlessrfa" target="_blank" rel="noopener noreferrer">X @LimitlessRFA</a></li>
           <li>Bodija, Ibadan &middot; Oyo State</li>
         </ul>
       </div>
@@ -191,19 +209,10 @@
       <p class="footer-copyright">&copy; 2027 Limitless Reach Football Academy &middot; Ibadan, Nigeria</p>
 
       <div class="footer-social">
-        <a href="#" class="social-link" aria-label="Instagram">
+        <a href="https://www.instagram.com/limitlessreach_fa/" class="social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
           <img src="assets/instagram.svg" alt="">
         </a>
-        <a href="#" class="social-link" aria-label="YouTube">
-          <img src="assets/youtube.svg" alt="">
-        </a>
-        <a href="#" class="social-link" aria-label="TikTok">
-          <img src="assets/tiktok.svg" alt="">
-        </a>
-        <a href="#" class="social-link" aria-label="Facebook">
-          <img src="assets/facebook.svg" alt="">
-        </a>
-        <a href="#" class="social-link" aria-label="X">
+        <a href="https://x.com/limitlessrfa" class="social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer">
           <img src="assets/x.svg" alt="">
         </a>
       </div>
@@ -211,8 +220,8 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260918-navigation"></script>
-<script src="js/forms.js?v=20261004-guardian-age"></script>
+<script src="js/main.js?v=20261004-sponsor-scroll"></script>
+<script src="js/forms.js?v=20261007-recaptcha"></script>
 
 </body>
 </html>
