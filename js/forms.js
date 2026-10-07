@@ -39,6 +39,7 @@ const FORM_ENDPOINTS = [
 const TRIMMABLE_TYPES = ['text', 'email', 'tel', 'url', 'search'];
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
+const TOUCH_SCREEN = window.matchMedia('(pointer: coarse)');
 const MAX_NAME_WORDS = 6;
 
 function setFormStatus(form, message, state) {
@@ -522,10 +523,18 @@ function refreshFieldErrors(form) {
 }
 
 function focusProblem(problem) {
-  problem.anchor.previousElementSibling.scrollIntoView({
-    behavior: REDUCED_MOTION.matches ? 'auto' : 'smooth',
-    block: 'center'
-  });
+  const message = problem.anchor.previousElementSibling;
+  const behavior = REDUCED_MOTION.matches ? 'auto' : 'smooth';
+
+  if (TOUCH_SCREEN.matches) {
+    document.activeElement.blur();
+    message.setAttribute('tabindex', '-1');
+    message.scrollIntoView({ behavior: behavior, block: 'start' });
+    message.focus({ preventScroll: true });
+    return;
+  }
+
+  message.scrollIntoView({ behavior: behavior, block: 'center' });
   problem.control.focus({ preventScroll: true });
 }
 

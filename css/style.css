@@ -1707,6 +1707,11 @@ article[id] {
 
 .field-error {
   color: var(--color-error);
+  scroll-margin-top: 120px;
+}
+
+.field-error:focus {
+  outline: none;
 }
 
 .form-status.is-error {
