@@ -769,8 +769,6 @@ article[id] {
   .programme-card:focus-within {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .programme-card:hover .programme-link,
@@ -5533,8 +5531,6 @@ article[id] {
   .purpose-card:hover {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .purpose-card:hover::before {
@@ -5560,8 +5556,6 @@ article[id] {
   .roots-col:hover {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .roots-col:hover .roots-number {
@@ -5579,8 +5573,6 @@ article[id] {
   .standard-card:hover {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .standard-card:hover .standard-number {
@@ -5604,8 +5596,6 @@ article[id] {
   .programme-detail-card:hover {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .programme-detail-card:hover .programme-detail-number,
@@ -5634,8 +5624,6 @@ article[id] {
   .sponsor-offerings-cards .sponsor-card:hover {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .sponsor-offerings-cards .sponsor-card:hover .sponsor-card-number {
@@ -5661,8 +5649,6 @@ article[id] {
   .safeguarding-item:hover {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .safeguarding-item:hover .label-small {
@@ -5685,8 +5671,6 @@ article[id] {
   .article-aside:focus-within {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .article-aside:hover .aside-heading,
@@ -5734,8 +5718,6 @@ article[id] {
   .home-page .intro-card:hover {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .home-page .intro-card:hover .card-number {
@@ -5759,8 +5741,6 @@ article[id] {
   .home-page .sponsor-card:hover {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .home-page .trials-card:hover .trials-card-label,
@@ -5790,8 +5770,6 @@ article[id] {
   .news-card:focus-within {
     background: #0C0C0A;
     border-color: #0C0C0A;
-    box-shadow: 0 20px 44px -12px rgba(12, 12, 10, 0.45);
-    transform: translateY(-4px);
   }
 
   .news-card:hover .news-tag-plain,
@@ -6000,4 +5978,18 @@ article[id] {
   .sponsor-offerings-cards .sponsor-card {
     min-height: 0;
   }
+}
+
+.news-card .news-read-more.is-disabled,
+.news-card:hover .news-read-more.is-disabled,
+.news-card:focus-within .news-read-more.is-disabled {
+  color: #B87718;
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.news-card .news-read-more.is-disabled .btn-arrow,
+.news-card:hover .news-read-more.is-disabled .btn-arrow,
+.news-card:focus-within .news-read-more.is-disabled .btn-arrow {
+  transform: none;
 }
