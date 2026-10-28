@@ -1,0 +1,495 @@
+/* Sponsor page — supplied Figma header and sponsorship section. */
+.sponsors-page.new-design .page-header-inner {
+  padding-top: 6px;
+}
+
+.sponsors-page.new-design .page-header-heading {
+  line-height: 0.8817;
+}
+
+.sponsors-page.new-design .page-header-watermark {
+  top: 214.17px;
+}
+
+.sponsor-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 5.29px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sponsor-back-link:hover {
+  color: #FFFFFF;
+}
+
+/* Three Ways to Sponsor — supplied 1380px container and 404px cards. */
+.sponsors-page.new-design .sponsor-offerings {
+  padding: 75.6px var(--gutter-outer);
+  background: #FFFFFF;
+}
+
+.sponsors-page.new-design .sponsor-offerings-inner {
+  gap: 39.31px;
+}
+
+.sponsors-page.new-design .sponsor-offerings-header {
+  width: 100%;
+  max-width: 900px;
+  gap: 20px;
+}
+
+.sponsors-page.new-design .sponsor-offerings .eyebrow {
+  align-self: flex-start;
+  gap: 8px;
+  padding: 8px 14px 8px 12px;
+  background: #FBF1E6;
+  border-radius: 999px;
+}
+
+.sponsors-page.new-design .sponsor-offerings .eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  background: #F68221;
+}
+
+.sponsors-page.new-design .sponsor-offerings .eyebrow span:last-child {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #141313;
+}
+
+.sponsors-page.new-design .sponsor-offerings-intro {
+  max-width: 620px;
+  letter-spacing: -0.24px;
+  color: #3C3B36;
+}
+
+.sponsors-page.new-design .sponsor-offerings-cards {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  align-items: start;
+}
+
+.sponsors-page.new-design .sponsor-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 560px;
+  padding: 39.312px;
+  background: #FBB36A;
+  color: #141313;
+  text-decoration: none;
+}
+
+.sponsors-page.new-design .sponsor-panel--digital {
+  background: #F68221;
+}
+
+.sponsors-page.new-design .sponsor-panel--scholarship {
+  background: #141313;
+  color: #FFFFFF;
+}
+
+.sponsors-page.new-design .sponsor-panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.sponsors-page.new-design .sponsor-panel-number {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: -0.17px;
+}
+
+.sponsors-page.new-design .sponsor-panel-label {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.17px;
+}
+
+.sponsors-page.new-design .sponsor-panel-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 229.79px;
+}
+
+.sponsors-page.new-design .sponsor-panel-heading {
+  padding-top: 39.33px;
+  font-family: 'Anton', sans-serif;
+  font-size: 63.5px;
+  font-weight: 400;
+  line-height: 57px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.sponsors-page.new-design .sponsor-panel-list {
+  min-height: 150px;
+  margin-top: 22px;
+  padding-bottom: 8px;
+  list-style: none;
+  border-top: 1px solid rgba(20, 19, 19, 0.18);
+}
+
+.sponsors-page.new-design .sponsor-panel-list li {
+  padding: 11px 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.15px;
+  border-bottom: 1px solid rgba(20, 19, 19, 0.18);
+}
+
+.sponsors-page.new-design .sponsor-panel--digital .sponsor-panel-list {
+  border-top-color: rgba(17, 17, 17, 0.2);
+}
+
+.sponsors-page.new-design .sponsor-panel--digital .sponsor-panel-list li {
+  border-bottom-color: rgba(17, 17, 17, 0.14);
+}
+
+.sponsors-page.new-design .sponsor-panel--scholarship .sponsor-panel-list,
+.sponsors-page.new-design .sponsor-panel--scholarship .sponsor-panel-list li {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.sponsors-page.new-design .sponsor-panel-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: -0.17px;
+}
+
+.sponsors-page.new-design .sponsor-panel-link svg {
+  flex: none;
+}
+
+.sponsors-page.new-design .sponsor-panel:focus-visible {
+  outline: 3px solid var(--brand-link);
+  outline-offset: 4px;
+}
+
+@media (min-width: 1025px) {
+  .sponsors-page.new-design .sponsor-offerings-inner {
+    padding: 0 var(--gutter-inner);
+    max-width: 1380px;
+  }
+
+  .sponsors-page.new-design .sponsor-offerings-title {
+    min-height: 74px;
+    font-size: 81.6px;
+    line-height: 73px;
+  }
+
+  .sponsors-page.new-design .sponsor-offerings-intro {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+/* Let's Talk — supplied contact section and enquiry form. */
+.sponsors-page.new-design .sponsor-contact-section {
+  padding: 75.6px var(--gutter-outer);
+  background: linear-gradient(180deg, #2A2524 0%, #2A2524 29.42%, #FBF1E6 29.42%);
+}
+
+.sponsors-page.new-design .sponsor-contact-grid {
+  align-items: flex-start;
+}
+
+.sponsors-page.new-design .sponsor-contact-aside {
+  padding: 39.25px 40px 40.01px;
+  background: #2A2524;
+  border-radius: 4px;
+}
+
+.sponsors-page.new-design .sponsor-contact-heading {
+  display: flex;
+  align-items: center;
+  min-height: 45px;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 44px;
+  letter-spacing: 0;
+  color: #FFFFFF;
+}
+
+.sponsors-page.new-design .sponsor-contact-intro {
+  line-height: 24px;
+  letter-spacing: -0.15px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.sponsors-page.new-design .sponsor-contact-list {
+  padding: 40px 34px 34px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(12, 12, 10, 0.08);
+  border-radius: 4px;
+}
+
+.sponsors-page.new-design .sponsor-contact-row {
+  align-items: flex-start;
+  min-height: 57px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sponsors-page.new-design .sponsor-contact-label {
+  margin-top: 5px;
+  line-height: 18px;
+  color: #F68221;
+}
+
+.sponsors-page.new-design .sponsor-contact-value {
+  min-width: 0;
+  line-height: 24px;
+  letter-spacing: -0.17px;
+  overflow-wrap: anywhere;
+  color: #FFFFFF;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  background: #FFFFFF;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 40px 80px -40px rgba(20, 19, 19, 0.35), 0 0 0 1px rgba(20, 19, 19, 0.06);
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(90deg, #F68221 0%, #F68221 60%, #FBB36A 60%, #FBB36A 85%, #141313 85%);
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form .form-row {
+  gap: 22px;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form .form-group {
+  min-width: 0;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form .form-label {
+  padding-bottom: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 21px;
+  letter-spacing: 0.13px;
+  text-transform: none;
+}
+
+.sponsors-page.new-design .sponsor-required {
+  color: var(--brand-link);
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form :is(.form-input, .form-select, .form-textarea) {
+  min-height: 54px;
+  background-color: #F7F2EC;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 16px;
+  letter-spacing: -0.16px;
+  color: #141313;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form .form-input {
+  height: 54px;
+  padding: 16.25px 16.5px;
+  line-height: 19px;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form .form-select {
+  height: 54.5px;
+  padding: 16.25px 44.5px 16.25px 16.5px;
+  line-height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M3.5 5.25L7 8.75L10.5 5.25' stroke='%23141313' stroke-width='1.28333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 14px 14px;
+  background-position: right 17.5px center;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form .form-textarea {
+  height: 140px;
+  min-height: 140px;
+  padding: 14.5px 16.5px;
+  line-height: 19px;
+  overflow: auto;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form :is(.form-input, .form-textarea)::placeholder {
+  color: #A8A29A;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form :is(.form-input, .form-select, .form-textarea):focus {
+  border-color: var(--brand-orange);
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form :is(.form-input, .form-select, .form-textarea)[aria-invalid="true"] {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 1px var(--color-error);
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form .form-submit-row {
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 8px;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(20, 19, 19, 0.08);
+}
+
+.sponsors-page.new-design .sponsor-submit {
+  padding: 18.5px 34.5px;
+  background: #F68221;
+  border: 1px solid #F68221;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 20.5px;
+  color: #141313;
+}
+
+.sponsors-page.new-design .sponsor-enquiry-form .form-submit-note {
+  flex: 1 1 220px;
+  min-width: min(220px, 100%);
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.17px;
+  color: #8A857E;
+}
+
+@media (min-width: 1381px) {
+  .sponsors-page.new-design .sponsor-contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 515.38fr) minmax(0, 629.9fr);
+    gap: 90.72px;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-aside {
+    width: 100%;
+  }
+
+  .sponsors-page.new-design .sponsor-enquiry-form {
+    width: 100%;
+    padding: 51.408px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sponsors-page.new-design .page-header-heading {
+    line-height: 1.02;
+  }
+
+  .sponsors-page.new-design .page-header-watermark {
+    top: 120px;
+  }
+
+  .sponsors-page.new-design :is(.sponsor-offerings, .sponsor-contact-section) {
+    padding: 48px var(--page-gutter);
+  }
+
+  .sponsors-page.new-design .sponsor-offerings-inner {
+    gap: 28px;
+    padding: 0;
+  }
+
+  .sponsors-page.new-design .sponsor-offerings-cards {
+    gap: 16px;
+  }
+
+  .sponsors-page.new-design .sponsor-panel {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .sponsors-page.new-design .sponsor-panel-main {
+    min-height: 0;
+    padding-top: 24px;
+  }
+
+  .sponsors-page.new-design .sponsor-panel-heading {
+    padding-top: 0;
+    font-size: clamp(36px, 9.6vw, 44px);
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  .sponsors-page.new-design .sponsor-panel-list {
+    min-height: 0;
+    margin-top: 20px;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-section {
+    background: #FBF1E6;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-grid {
+    gap: 32px;
+    padding: 0;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-aside {
+    padding: 28px 20px 24px;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-heading {
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-list {
+    padding: 8px 16px;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-row {
+    flex-direction: column;
+    gap: 4px;
+    min-height: 0;
+    padding: 14px 0;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-label {
+    margin-top: 0;
+  }
+
+  .sponsors-page.new-design .sponsor-enquiry-form {
+    padding: 24px;
+  }
+
+  .sponsors-page.new-design .sponsor-enquiry-form .form-submit-note {
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 360px) {
+  .sponsors-page.new-design .sponsor-contact-aside {
+    padding-inline: 16px;
+  }
+
+  .sponsors-page.new-design .sponsor-contact-list {
+    padding-inline: 12px;
+  }
+}

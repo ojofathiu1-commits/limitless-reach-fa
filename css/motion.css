@@ -1,0 +1,265 @@
+/* Motion and interaction states from the October reference recording. */
+.home-page.new-design .hero-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page.new-design .hero-line {
+  display: block;
+  overflow: clip;
+  /* Keep the tight line spacing without clipping the final letter shapes. */
+  padding-block: 0.08em;
+  margin-block: -0.08em;
+}
+
+.home-page.new-design .hero-line-text {
+  display: block;
+  transform-origin: left bottom;
+}
+
+.home-page.new-design .hero-heading.hero-motion-pending {
+  visibility: hidden;
+}
+
+.home-page.new-design .hero-content {
+  opacity: var(--hero-scroll-opacity, 1);
+}
+
+.new-design .motion-pending {
+  opacity: 0;
+  translate: 0 28px;
+}
+
+.new-design :is(.motion-tilt, .programme-detail-card, .news-card, .sponsor-card) {
+  transition: transform 240ms ease, box-shadow 240ms ease, background-color 200ms ease, border-color 200ms ease;
+}
+
+.new-design .motion-tilt {
+  /* Pointer motion is eased by requestAnimationFrame; colour and shadow keep their own transitions. */
+  transition-property: box-shadow, background-color, border-color;
+}
+
+.new-design .motion-tilt.is-tilting {
+  position: relative;
+  z-index: 1;
+}
+
+.new-design :is(.btn-primary, .btn-submit, .btn-cta, .btn-dark, .btn-outline, .btn-outline-dark,
+  .programme-link, .sponsors-bar-cta, .sponsor-showcase-btn, .footer-v2-cta, .partners-cta-link,
+  .programmes-arrow, .gallery-filter, .partners-tab) {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease,
+    border-color 180ms ease, color 180ms ease;
+}
+
+.new-design :is(.btn-arrow, .footer-v2-cta-arrow, .partners-cta-arrow, .sponsor-panel-link svg,
+  .sponsor-showcase-btn svg) {
+  transition: transform 180ms ease;
+}
+
+.new-design .gallery-tile {
+  overflow: hidden;
+  transition: background-color 220ms ease, border-color 220ms ease;
+}
+
+.new-design .gallery-tile img {
+  transition: transform 300ms ease;
+}
+
+/* Leave space for raised carousel cards without changing the section height. */
+.home-page.new-design .programmes-grid {
+  margin-block: -28px -36px;
+  padding-block: 28px 40px;
+}
+
+.new-design .footer-v2-social-link img {
+  transition: filter 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .new-design .sponsors-track:hover {
+    animation-play-state: paused;
+  }
+
+  .new-design :is(.programme-detail-card, .news-card):hover {
+    box-shadow: 0 16px 30px -20px rgba(20, 19, 19, 0.35);
+  }
+
+  .new-design .news-card:hover {
+    background: #F6E4D1;
+  }
+
+  .new-design :is(.programme-detail-card, .news-card):hover .btn-arrow,
+  .new-design :is(.btn-primary, .btn-submit, .btn-dark, .btn-outline, .btn-outline-dark,
+    .programme-link, .news-read-more):hover .btn-arrow,
+  .new-design .footer-v2-cta:hover .footer-v2-cta-arrow,
+  .new-design .partners-cta-link:hover .partners-cta-arrow,
+  .new-design .sponsor-showcase-btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  .new-design .sponsor-panel:hover .sponsor-panel-link svg {
+    transform: translateX(4px) scaleX(1.2);
+    transform-origin: left center;
+  }
+
+  .new-design :is(.btn-primary, .btn-submit):hover:not(:disabled) {
+    background: #E97215;
+    border-color: #E97215;
+    transform: translateY(-2px);
+  }
+
+  .new-design :is(.btn-dark, .sponsor-showcase-btn):hover {
+    background: #2A2524;
+    border-color: #2A2524;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+
+  .new-design :is(.btn-outline, .btn-outline-dark):hover,
+  .new-design .site-header .btn-cta:hover,
+  .new-design .sponsors-bar-cta:hover {
+    background: #141313;
+    border-color: #141313;
+    color: #FFFFFF;
+  }
+
+  .new-design :is(.btn-outline, .btn-outline-dark):hover {
+    transform: translateY(-2px);
+  }
+
+  .home-page.new-design .programme-link:hover {
+    background: #F68221;
+    border-color: #F68221;
+    color: #141313;
+  }
+
+  .new-design .footer-v2-cta:hover {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #141313;
+    transform: translateY(-2px);
+  }
+
+  .new-design .partners-cta-link:hover {
+    background: #141313;
+    border-color: #141313;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+
+  .new-design .footer-v2-list a:hover {
+    color: #FFFFFF;
+  }
+
+  .new-design .footer-v2-legal a:hover {
+    color: #F68221;
+  }
+
+  .new-design a.footer-v2-social-link:hover {
+    background: #F68221;
+    border-color: #F68221;
+    transform: translateY(-2px);
+  }
+
+  .new-design a.footer-v2-social-link:hover img {
+    filter: brightness(0);
+  }
+
+  .new-design .gallery-tile:hover {
+    background: #F6E4D1;
+    border-color: rgba(20, 19, 19, 0.35);
+  }
+
+  .new-design .gallery-tile:hover img {
+    transform: scale(1.04);
+  }
+
+  .new-design :is(.gallery-filter, .partners-tab):hover:not(.is-active) {
+    background: #F6E4D1;
+    border-color: #F68221;
+  }
+}
+
+@media (any-hover: hover) and (any-pointer: fine) {
+  .new-design .motion-tilt.is-tilting {
+    transform: perspective(1000px) translateY(var(--tilt-lift, 0px)) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  }
+
+  .new-design .motion-tilt.is-tilting:hover {
+    box-shadow: 0 22px 38px -18px rgba(20, 19, 19, 0.36);
+  }
+
+  .home-page.new-design .programmes-arrow:hover:not(:disabled) {
+    background: var(--brand-orange);
+    color: var(--brand-ink);
+  }
+}
+
+.home-page.new-design .programmes-arrow:is(:focus-visible, :active):not(:disabled) {
+  background: var(--brand-orange);
+  color: var(--brand-ink);
+}
+
+.new-design :is(.programme-detail-card, .news-card):focus-within {
+  box-shadow: 0 16px 30px -20px rgba(20, 19, 19, 0.35);
+}
+
+.new-design .news-card:focus-within {
+  background: #F6E4D1;
+}
+
+.new-design .footer-v2-list a:focus-visible {
+  color: #FFFFFF;
+}
+
+.new-design .footer-v2-legal a:focus-visible {
+  color: #F68221;
+}
+
+/* Disabled and coming-soon items keep their existing inactive appearance. */
+.new-design .news-read-more.is-disabled .btn-arrow {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page.new-design .hero-heading.hero-motion-pending { visibility: visible; }
+  .home-page.new-design .hero-content { opacity: 1; }
+
+  .new-design .motion-pending {
+    opacity: revert;
+    translate: none;
+  }
+
+  .new-design .sponsors-track {
+    animation: none;
+  }
+
+  .new-design :is(.btn-arrow, .footer-v2-cta-arrow, .partners-cta-arrow,
+    .sponsor-panel-link svg, .sponsor-showcase-btn svg, .gallery-tile img) {
+    transform: none !important;
+  }
+
+  .new-design :is(.motion-tilt, .btn-primary, .btn-submit, .btn-dark, .btn-outline, .btn-outline-dark,
+    .footer-v2-cta, .partners-cta-link, .btn-arrow, .footer-v2-cta-arrow, .partners-cta-arrow,
+    .sponsor-panel-link svg, .sponsor-showcase-btn, .sponsor-showcase-btn svg, .footer-v2-social-link,
+    .gallery-tile img):hover {
+    transform: none;
+  }
+
+  .new-design *, .new-design *::before, .new-design *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .home-page.new-design .hero-heading.hero-motion-pending { visibility: visible; }
+  .home-page.new-design .hero-content { opacity: 1; }
+
+  .new-design .motion-pending {
+    opacity: revert;
+    translate: none;
+  }
+}

@@ -1,0 +1,89 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+  rename: safe
+content:
+  - name: news
+    label: News posts
+    type: collection
+    path: content/news
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, tag, date, published]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Headline
+        type: string
+        required: true
+      - name: tag
+        label: Tag
+        type: select
+        required: true
+        options:
+          values: [Trials, Coaching, Academy, Match Report, Partnerships, Player Stories]
+      - name: date
+        label: Date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: published
+        label: Published
+        type: boolean
+        default: true
+        description: Turn off to keep this post as a draft. Drafts are not shown on the site.
+      - name: featured
+        label: Pin to the top
+        type: boolean
+        default: false
+        description: Pinned posts are listed first on the News page.
+      - name: show_read_more
+        label: Show the Read More link
+        type: boolean
+        default: true
+      - name: badge
+        label: Small label next to the tag
+        type: string
+        default: Latest
+      - name: summary
+        label: Card summary
+        type: text
+        required: true
+        description: One or two sentences shown on the News page card and in link previews.
+      - name: intro
+        label: Article intro
+        type: text
+        description: Shown under the headline on the article page. Leave empty to reuse the summary.
+      - name: image
+        label: Link preview photo
+        type: image
+        description: Shown when the article is shared on WhatsApp or Facebook. 1200 x 630 works best.
+      - name: glance
+        label: At a glance
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: text
+            label: Text
+            type: string
+      - name: cta_label
+        label: Side button text
+        type: string
+      - name: cta_link
+        label: Side button page
+        type: string
+        description: For example register.html or contact.html
+      - name: body
+        label: Article
+        type: rich-text
+        options:
+          format: markdown
+          media: false

@@ -33,6 +33,14 @@ const FORM_ENDPOINTS = [
       organisation: 'organisation',
       reply: 'email'
     }
+  },
+  {
+    selector: '.careers-application-form',
+    formType: 'Job application',
+    confirm: {
+      name: 'first-name',
+      reply: 'email'
+    }
   }
 ];
 

@@ -7,12 +7,18 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261008-nocardlift">
+<link rel="stylesheet" href="css/style.css?v=20261028-nav-spec">
+<link rel="stylesheet" href="css/responsive.css?v=20261023-clean-menu">
+<link rel="stylesheet" href="css/motion.css?v=20261023-card-guide">
+<link rel="preload" href="assets/fonts/Anton-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/InterTight-400.ttf" as="font" type="font/ttf" crossorigin>
 </head>
-<body>
+<body class="register-page new-design">
+
+<div class="announcement-bar">
+  <p class="announcement-text"><span class="announcement-text-full">Trials registration is now open for all four programmes.</span><span class="announcement-text-mobile">Trials open for all four programmes.</span></p>
+  <a href="register.html" class="announcement-link">Register for trial</a>
+</div>
 
 <header class="site-header">
   <div class="header-container">
@@ -21,14 +27,16 @@
     </a>
 
     <nav class="nav-links" id="site-navigation">
-      <a href="index.html" class="nav-link">HOME</a>
-      <a href="the-academy.html" class="nav-link">THE ACADEMY</a>
-      <a href="programmes.html" class="nav-link">PROGRAMMES</a>
-      <a href="news.html" class="nav-link">NEWS</a>
-      <a href="contact.html" class="nav-link">CONTACT</a>
+      <a href="the-academy.html" class="nav-link">The Academy</a>
+      <a href="programmes.html" class="nav-link">Programmes</a>
+      <a href="partners.html" class="nav-link">Partners</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
 
-    <a href="register.html" class="btn-cta active">REGISTER FOR TRIAL</a>
+    <a href="register.html" class="btn-cta active" aria-current="page">Register for Trial</a>
 
     <button class="nav-toggle" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false">
       <span class="nav-toggle-bar"></span>
@@ -38,14 +46,15 @@
   </div>
 </header>
 
-<section class="register-header">
+<section class="page-header">
+  <img src="assets/hero-badge.svg" alt="" class="page-header-watermark" aria-hidden="true">
   <div class="page-header-inner">
     <div class="eyebrow eyebrow-gold">
       <span class="eyebrow-dot"></span>
-      <span>Register for Trial</span>
+      <span>Register for trial</span>
     </div>
     <h1 class="page-header-heading">Trial Registration<br><span class="accent">&amp; Consent Form.</span></h1>
-    <p class="page-header-text register-header-text">Thank you for your interest in trialling with Limitless Reach Football Academy. Please complete this form for the player attending the trial.</p>
+    <p class="page-header-text">Thank you for your interest in trialling with Limitless Reach Football Academy. Please complete this form for the player attending the trial.</p>
   </div>
 </section>
 
@@ -60,6 +69,7 @@
         <p class="register-intro-text">The information provided will be used to manage the player&rsquo;s trial, communicate important information and help us provide a safe environment. Personal and medical information will be treated confidentially and only accessed where necessary.</p>
       </div>
 
+      <div class="register-card">
       <fieldset class="form-fieldset">
         <legend class="form-legend">
           <span class="form-legend-eyebrow">Section 01</span>
@@ -68,13 +78,13 @@
 
         <div class="fieldset-rows">
           <div class="field-group">
-            <label class="field-label" for="player-name">Player Full Name *</label>
+            <label class="field-label" for="player-name">Player full name *</label>
             <input type="text" id="player-name" name="player-name" class="field-input" placeholder="First name and surname" required>
           </div>
 
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="dob-display">Date of Birth *</label>
+              <label class="field-label" for="dob-display">Date of birth *</label>
               <div class="date-field">
                 <input type="text" id="dob-display" class="field-input field-input--date" placeholder="dd/mm/yyyy" autocomplete="bday" inputmode="numeric" maxlength="10" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" title="Enter the date as dd/mm/yyyy." required>
                 <input type="date" id="dob" name="dob" class="date-field-native" data-date-display="dob-display" tabindex="-1" aria-hidden="true">
@@ -88,7 +98,7 @@
 
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="programme-group">Programme / Age Group *</label>
+              <label class="field-label" for="programme-group">Programme / age group *</label>
               <select id="programme-group" name="programme-group" class="field-select" required>
                 <option value="" disabled selected>Select</option>
                 <option value="foundation">Foundation</option>
@@ -110,11 +120,11 @@
 
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="current-club">Current Club / Academy <span class="field-hint">if applicable</span></label>
+              <label class="field-label" for="current-club">Current club / academy <span class="field-hint">if applicable</span></label>
               <input type="text" id="current-club" name="current-club" class="field-input">
             </div>
             <div class="field-group">
-              <label class="field-label" for="playing-level">Current Playing Level</label>
+              <label class="field-label" for="playing-level">Current playing level</label>
               <select id="playing-level" name="playing-level" class="field-select">
                 <option value="" disabled selected>Select</option>
                 <option value="foundation">Foundation</option>
@@ -127,7 +137,7 @@
 
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="primary-position">Primary Playing Position *</label>
+              <label class="field-label" for="primary-position">Primary playing position *</label>
               <select id="primary-position" name="primary-position" class="field-select" required>
                 <option value="" disabled selected>Select</option>
                 <option value="goalkeeper">Goalkeeper</option>
@@ -137,7 +147,7 @@
               </select>
             </div>
             <div class="field-group">
-              <label class="field-label" for="secondary-position">Secondary Position <span class="field-hint">Optional</span></label>
+              <label class="field-label" for="secondary-position">Secondary position <span class="field-hint">Optional</span></label>
               <select id="secondary-position" name="secondary-position" class="field-select">
                 <option value="" disabled selected>Select</option>
                 <option value="goalkeeper">Goalkeeper</option>
@@ -161,36 +171,28 @@
         <div class="fieldset-rows">
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="guardian-name">Parent / Guardian Full Name <span class="guardian-required-marker" data-guardian-required-for="guardian-name">*</span></label>
+              <label class="field-label" for="guardian-name">Parent / guardian full name <span class="guardian-required-marker" data-guardian-required-for="guardian-name">*</span></label>
               <input type="text" id="guardian-name" name="guardian-name" class="field-input" required>
             </div>
             <div class="field-group">
-              <label class="field-label" for="guardian-relationship">Relationship to Player <span class="guardian-required-marker" data-guardian-required-for="guardian-relationship">*</span></label>
+              <label class="field-label" for="guardian-relationship">Relationship to player <span class="guardian-required-marker" data-guardian-required-for="guardian-relationship">*</span></label>
               <input type="text" id="guardian-relationship" name="guardian-relationship" class="field-input" placeholder="e.g. Mother, Father, Guardian" required>
             </div>
           </div>
-        </div>
-      </fieldset>
 
-      <fieldset class="form-fieldset">
-        <legend class="form-legend">
-          <span class="form-legend-heading">Contact Details</span>
-        </legend>
-
-        <div class="fieldset-rows">
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="contact-phone">Phone Number *</label>
+              <label class="field-label" for="contact-phone">Phone number *</label>
               <input type="tel" id="contact-phone" name="phone" class="field-input" pattern="\+?[0-9][0-9 ()-]{6,19}" title="Enter a valid phone number." required>
             </div>
             <div class="field-group">
-              <label class="field-label" for="contact-email">Email Address *</label>
+              <label class="field-label" for="contact-email">Email address *</label>
               <input type="email" id="contact-email" name="email" class="field-input" required>
             </div>
           </div>
 
           <div class="field-group">
-            <label class="field-label">Preferred Contact Method *</label>
+            <label class="field-label">Preferred contact method *</label>
             <div class="radio-pill-group">
               <label class="radio-pill">
                 <input type="radio" name="contact-method" value="phone" required>
@@ -218,17 +220,17 @@
         <div class="fieldset-rows">
           <div class="field-row">
             <div class="field-group">
-              <label class="field-label" for="emergency-name">Emergency Contact Name *</label>
+              <label class="field-label" for="emergency-name">Emergency contact name *</label>
               <input type="text" id="emergency-name" name="emergency-name" class="field-input" required>
             </div>
             <div class="field-group">
-              <label class="field-label" for="emergency-relationship">Relationship to Player *</label>
+              <label class="field-label" for="emergency-relationship">Relationship to player *</label>
               <input type="text" id="emergency-relationship" name="emergency-relationship" class="field-input" required>
             </div>
           </div>
 
           <div class="field-group">
-            <label class="field-label" for="emergency-number">Emergency Contact Number *</label>
+            <label class="field-label" for="emergency-number">Emergency contact number *</label>
             <input type="tel" id="emergency-number" name="emergency-number" class="field-input" pattern="\+?[0-9][0-9 ()-]{6,19}" title="Enter a valid phone number." required>
           </div>
         </div>
@@ -242,7 +244,7 @@
 
         <div class="fieldset-rows">
           <div class="field-group">
-            <label class="field-label">Does the Player Have Any Medical Condition, Allergy, Injury or Health Requirement That Our Coaches Should Be Aware Of? *</label>
+            <label class="field-label">Does the player have any medical condition, allergy, injury or health requirement that our coaches should be aware of? *</label>
             <div class="radio-pill-group">
               <label class="radio-pill">
                 <input type="radio" name="medical-condition" value="yes" required>
@@ -256,12 +258,12 @@
           </div>
 
           <div class="field-group">
-            <label class="field-label" for="medical-details">If Yes, Please Provide Details</label>
+            <label class="field-label" for="medical-details">If yes, please provide details</label>
             <textarea id="medical-details" name="medical-details" class="field-input field-textarea" placeholder="Condition, allergy or injury, and anything coaches should do differently"></textarea>
           </div>
 
           <div class="field-group">
-            <label class="field-label">Is the Player Currently Taking Any Medication That May Be Relevant During Football Activity? *</label>
+            <label class="field-label">Is the player currently taking any medication that may be relevant during football activity? *</label>
             <div class="radio-pill-group">
               <label class="radio-pill">
                 <input type="radio" name="medication" value="yes" required>
@@ -275,12 +277,12 @@
           </div>
 
           <div class="field-group">
-            <label class="field-label" for="medication-details">If Yes, Please Provide Details</label>
+            <label class="field-label" for="medication-details">If yes, please provide details</label>
             <textarea id="medication-details" name="medication-details" class="field-input field-textarea" placeholder="Medication, dosage and timing where relevant"></textarea>
           </div>
 
           <div class="field-group">
-            <label class="field-label" for="additional-notes">Is There Anything Else Our Coaching or Safeguarding Team Should Know to Support the Player Safely During the Trial? <span class="field-hint">Optional</span></label>
+            <label class="field-label" for="additional-notes">Is there anything else our coaching or safeguarding team should know to support the player safely during the trial? <span class="field-hint">Optional</span></label>
             <textarea id="additional-notes" name="additional-notes" class="field-input field-textarea"></textarea>
           </div>
         </div>
@@ -294,7 +296,7 @@
 
         <div class="fieldset-rows">
           <div class="field-group">
-            <label class="field-label" for="heard-about">How Did You Hear About Limitless Reach?</label>
+            <label class="field-label" for="heard-about">How did you hear about Limitless Reach?</label>
             <select id="heard-about" name="heard-about" class="field-select">
               <option value="" disabled selected>Select</option>
               <option value="instagram">Instagram</option>
@@ -308,7 +310,7 @@
           </div>
 
           <div class="field-group">
-            <label class="field-label" for="trial-reason">Why Would You Like to Trial With Limitless Reach? <span class="field-hint">Optional short response</span></label>
+            <label class="field-label" for="trial-reason">Why would you like to trial with Limitless Reach? <span class="field-hint">Optional short response</span></label>
             <textarea id="trial-reason" name="trial-reason" class="field-input field-textarea"></textarea>
           </div>
         </div>
@@ -426,7 +428,7 @@
 
         <div class="field-row declaration-row">
           <div class="field-group">
-            <label class="field-label" for="declare-name">Name of Player, Parent or Guardian *</label>
+            <label class="field-label" for="declare-name">Name of player, parent or guardian *</label>
             <input type="text" id="declare-name" name="declare-name" class="field-input field-input--lg" required>
           </div>
           <div class="field-group">
@@ -464,6 +466,7 @@
           <button type="button" class="btn-outline-dark" data-confirm-reset>Register another player</button>
         </div>
       </div>
+      </div>
     </form>
 
     <aside class="register-aside">
@@ -490,71 +493,84 @@
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="footer-logo">
-        <p class="footer-tagline">A grassroots football academy in Ibadan, Oyo State. Developing players, unlocking potential, creating pathways.</p>
-      </div>
+<footer class="site-footer-v2">
+  <img src="assets/hero-badge.svg" alt="" class="footer-v2-watermark" aria-hidden="true">
 
-      <div class="footer-column">
-        <h4 class="footer-heading">The Academy</h4>
-        <ul class="footer-list">
+  <div class="footer-v2-inner">
+    <div class="footer-v2-top">
+      <a href="index.html" class="footer-v2-logo">
+        <img src="assets/hero-badge.svg" alt="Limitless Reach Football Academy" width="52" height="61">
+      </a>
+      <a href="register.html" class="footer-v2-cta">Register for trial <span class="footer-v2-cta-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <div class="footer-v2-columns">
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">The Academy</h4>
+        <ul class="footer-v2-list">
           <li><a href="the-academy.html#our-story">Our Story</a></li>
           <li><a href="the-academy.html#our-philosophy">Our Philosophy</a></li>
           <li><a href="the-academy.html#leadership">Leadership</a></li>
           <li><a href="the-academy.html#safeguarding">Safeguarding</a></li>
         </ul>
       </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">Get Involved</h4>
-        <ul class="footer-list">
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Explore</h4>
+        <ul class="footer-v2-list">
           <li><a href="programmes.html">Programmes</a></li>
-          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="partners.html">Partners</a></li>
           <li><a href="news.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Get Involved</h4>
+        <ul class="footer-v2-list">
+          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="sponsors.html">Become a Sponsor</a></li>
+          <li><a href="careers.html">Careers</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">Get in Touch</h4>
-        <ul class="footer-list">
-          <li><a href="mailto:operations@limitlessreachfa.com" class="footer-list-link footer-list-link--mail">operations@limitlessreachfa.com</a></li>
-          <li><a href="tel:+2348000000000" class="footer-list-link footer-list-link--phone">+234 800 000 0000</a></li>
-          <li><a href="https://www.instagram.com/limitlessreach_fa/" class="footer-list-link footer-list-link--instagram" aria-label="Instagram @limitlessreach_fa (opens in a new tab)" target="_blank" rel="noopener noreferrer">@limitlessreach_fa</a></li>
-          <li><a href="https://x.com/limitlessrfa" class="footer-list-link footer-list-link--x" aria-label="X @LimitlessRFA (opens in a new tab)" target="_blank" rel="noopener noreferrer">@LimitlessRFA</a></li>
-          <li class="footer-list-item footer-list-item--location">Bodija, Ibadan &middot; Oyo State</li>
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Get in Touch</h4>
+        <ul class="footer-v2-list">
+          <li><a href="mailto:operations@limitlessreachfa.com">operations@limitlessreachfa.com</a></li>
+          <li><a href="mailto:trials@limitlessreachfa.com">trials@limitlessreachfa.com</a></li>
+          <li><a href="mailto:partnerships@limitlessreachfa.com">partnerships@limitlessreachfa.com</a></li>
+          <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copyright">&copy; 2027 Limitless Reach Football Academy &middot; Ibadan, Nigeria</p>
+    <div class="footer-v2-office">
+      <h4 class="footer-v2-office-label">Registered Office</h4>
+      <address class="footer-v2-address">Team One Hub, Olona Filling Station, Beside Access Bank Sabo, Ojoo, Ibadan, Oyo State</address>
+      <div class="footer-v2-cac">
+        <span class="footer-v2-cac-label">CAC Reg. No.</span>
+        <span class="footer-v2-cac-number">9872968</span>
+      </div>
+    </div>
 
-      <div class="footer-social">
-        <a href="https://www.instagram.com/limitlessreach_fa/" class="social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-          <img src="assets/instagram.svg" alt="">
-        </a>
-        <span class="social-link" role="img" aria-label="YouTube (coming soon)">
-          <img src="assets/youtube.svg" alt="">
-        </span>
-        <span class="social-link" role="img" aria-label="TikTok (coming soon)">
-          <img src="assets/tiktok.svg" alt="">
-        </span>
-        <span class="social-link" role="img" aria-label="Facebook (coming soon)">
-          <img src="assets/facebook.svg" alt="">
-        </span>
-        <a href="https://x.com/limitlessrfa" class="social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-          <img src="assets/x.svg" alt="">
-        </a>
+    <div class="footer-v2-bottom">
+      <p class="footer-v2-copyright">&copy; 2027 Limitless Reach Football Academy &middot; CAC 9872968</p>
+      <div class="footer-v2-legal">
+        <span class="footer-v2-soon" aria-label="Privacy (coming soon)">Privacy</span>
+        <span class="footer-v2-soon" aria-label="Terms &amp; Conditions (coming soon)">Terms &amp; Conditions</span>
+      </div>
+      <div class="footer-v2-social">
+        <a href="https://www.instagram.com/limitlessreach_fa/" class="footer-v2-social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img src="assets/instagram.svg" alt=""></a>
+        <span class="footer-v2-social-link" role="img" aria-label="YouTube (coming soon)"><img src="assets/youtube.svg" alt=""></span>
+        <span class="footer-v2-social-link" role="img" aria-label="TikTok (coming soon)"><img src="assets/tiktok.svg" alt=""></span>
+        <span class="footer-v2-social-link" role="img" aria-label="Facebook (coming soon)"><img src="assets/facebook.svg" alt=""></span>
+        <a href="https://x.com/limitlessrfa" class="footer-v2-social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img src="assets/x.svg" alt=""></a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js?v=20261004-sponsor-scroll"></script>
+<script src="js/main.js?v=20261023-tilt-carousel"></script>
+<script src="js/motion.js?v=20261023-card-guide"></script>
 <script src="js/forms.js?v=20261008-nocardlift"></script>
 
 </body>

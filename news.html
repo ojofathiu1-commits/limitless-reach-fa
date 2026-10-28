@@ -7,12 +7,18 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261008-nocardlift">
+<link rel="stylesheet" href="css/style.css?v=20261028-nav-spec">
+<link rel="stylesheet" href="css/responsive.css?v=20261023-clean-menu">
+<link rel="stylesheet" href="css/motion.css?v=20261023-card-guide">
+<link rel="preload" href="assets/fonts/Anton-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/InterTight-400.ttf" as="font" type="font/ttf" crossorigin>
 </head>
-<body>
+<body class="news-page new-design">
+
+<div class="announcement-bar">
+  <p class="announcement-text"><span class="announcement-text-full">Trials registration is now open for all four programmes.</span><span class="announcement-text-mobile">Trials open for all four programmes.</span></p>
+  <a href="register.html" class="announcement-link">Register for trial</a>
+</div>
 
 <header class="site-header">
   <div class="header-container">
@@ -21,14 +27,16 @@
     </a>
 
     <nav class="nav-links" id="site-navigation">
-      <a href="index.html" class="nav-link">HOME</a>
-      <a href="the-academy.html" class="nav-link">THE ACADEMY</a>
-      <a href="programmes.html" class="nav-link">PROGRAMMES</a>
-      <a href="news.html" class="nav-link active">NEWS</a>
-      <a href="contact.html" class="nav-link">CONTACT</a>
+      <a href="the-academy.html" class="nav-link">The Academy</a>
+      <a href="programmes.html" class="nav-link">Programmes</a>
+      <a href="partners.html" class="nav-link">Partners</a>
+      <a href="news.html" class="nav-link active" aria-current="page">News</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
 
-    <a href="register.html" class="btn-cta">REGISTER FOR TRIAL</a>
+    <a href="register.html" class="btn-cta">Register for Trial</a>
 
     <button class="nav-toggle" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false">
       <span class="nav-toggle-bar"></span>
@@ -38,7 +46,8 @@
   </div>
 </header>
 
-<section class="news-header">
+<section class="page-header news-header">
+  <img src="assets/hero-badge.svg" alt="" class="page-header-watermark" aria-hidden="true">
   <div class="page-header-inner">
     <div class="eyebrow eyebrow-gold">
       <span class="eyebrow-dot"></span>
@@ -66,7 +75,7 @@
           <span class="news-tag">Coaching</span>
           <span class="news-tag-plain">Latest</span>
         </div>
-        <h2 class="news-card-heading">We&rsquo;re Building Our Coaching Team</h2>
+        <h2 class="news-card-heading">We’re Building Our Coaching Team</h2>
         <p class="news-card-text">Five roles are open, from Head of Coaching to our Amateur Team Manager. We are looking for people who put players first.</p>
         <a class="news-read-more is-disabled" role="link" aria-disabled="true">Read More <span class="btn-arrow">&rarr;</span></a>
       </article>
@@ -76,7 +85,7 @@
           <span class="news-tag-plain">Latest</span>
         </div>
         <h2 class="news-card-heading">Limitless Reach Searches for Its First Home in Ibadan</h2>
-        <p class="news-card-text">We are securing a founding training base in Bodija, the first pitch where Ibadan&rsquo;s next generation will grow.</p>
+        <p class="news-card-text">We are securing a founding training base in Bodija, the first pitch where Ibadan’s next generation will grow.</p>
         <a class="news-read-more is-disabled" role="link" aria-disabled="true">Read More <span class="btn-arrow">&rarr;</span></a>
       </article>
     </div>
@@ -92,71 +101,84 @@
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="footer-logo">
-        <p class="footer-tagline">A grassroots football academy in Ibadan, Oyo State. Developing players, unlocking potential, creating pathways.</p>
-      </div>
+<footer class="site-footer-v2">
+  <img src="assets/hero-badge.svg" alt="" class="footer-v2-watermark" aria-hidden="true">
 
-      <div class="footer-column">
-        <h4 class="footer-heading">The Academy</h4>
-        <ul class="footer-list">
+  <div class="footer-v2-inner">
+    <div class="footer-v2-top">
+      <a href="index.html" class="footer-v2-logo">
+        <img src="assets/hero-badge.svg" alt="Limitless Reach Football Academy" width="52" height="61">
+      </a>
+      <a href="register.html" class="footer-v2-cta">Register for trial <span class="footer-v2-cta-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <div class="footer-v2-columns">
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">The Academy</h4>
+        <ul class="footer-v2-list">
           <li><a href="the-academy.html#our-story">Our Story</a></li>
           <li><a href="the-academy.html#our-philosophy">Our Philosophy</a></li>
           <li><a href="the-academy.html#leadership">Leadership</a></li>
           <li><a href="the-academy.html#safeguarding">Safeguarding</a></li>
         </ul>
       </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">Get Involved</h4>
-        <ul class="footer-list">
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Explore</h4>
+        <ul class="footer-v2-list">
           <li><a href="programmes.html">Programmes</a></li>
-          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="partners.html">Partners</a></li>
           <li><a href="news.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Get Involved</h4>
+        <ul class="footer-v2-list">
+          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="sponsors.html">Become a Sponsor</a></li>
+          <li><a href="careers.html">Careers</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">Get in Touch</h4>
-        <ul class="footer-list">
-          <li><a href="mailto:operations@limitlessreachfa.com" class="footer-list-link footer-list-link--mail">operations@limitlessreachfa.com</a></li>
-          <li><a href="tel:+2348000000000" class="footer-list-link footer-list-link--phone">+234 800 000 0000</a></li>
-          <li><a href="https://www.instagram.com/limitlessreach_fa/" class="footer-list-link footer-list-link--instagram" aria-label="Instagram @limitlessreach_fa (opens in a new tab)" target="_blank" rel="noopener noreferrer">@limitlessreach_fa</a></li>
-          <li><a href="https://x.com/limitlessrfa" class="footer-list-link footer-list-link--x" aria-label="X @LimitlessRFA (opens in a new tab)" target="_blank" rel="noopener noreferrer">@LimitlessRFA</a></li>
-          <li class="footer-list-item footer-list-item--location">Bodija, Ibadan &middot; Oyo State</li>
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Get in Touch</h4>
+        <ul class="footer-v2-list">
+          <li><a href="mailto:operations@limitlessreachfa.com">operations@limitlessreachfa.com</a></li>
+          <li><a href="mailto:trials@limitlessreachfa.com">trials@limitlessreachfa.com</a></li>
+          <li><a href="mailto:partnerships@limitlessreachfa.com">partnerships@limitlessreachfa.com</a></li>
+          <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copyright">&copy; 2027 Limitless Reach Football Academy &middot; Ibadan, Nigeria</p>
+    <div class="footer-v2-office">
+      <h4 class="footer-v2-office-label">Registered Office</h4>
+      <address class="footer-v2-address">Team One Hub, Olona Filling Station, Beside Access Bank Sabo, Ojoo, Ibadan, Oyo State</address>
+      <div class="footer-v2-cac">
+        <span class="footer-v2-cac-label">CAC Reg. No.</span>
+        <span class="footer-v2-cac-number">9872968</span>
+      </div>
+    </div>
 
-      <div class="footer-social">
-        <a href="https://www.instagram.com/limitlessreach_fa/" class="social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-          <img src="assets/instagram.svg" alt="">
-        </a>
-        <span class="social-link" role="img" aria-label="YouTube (coming soon)">
-          <img src="assets/youtube.svg" alt="">
-        </span>
-        <span class="social-link" role="img" aria-label="TikTok (coming soon)">
-          <img src="assets/tiktok.svg" alt="">
-        </span>
-        <span class="social-link" role="img" aria-label="Facebook (coming soon)">
-          <img src="assets/facebook.svg" alt="">
-        </span>
-        <a href="https://x.com/limitlessrfa" class="social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-          <img src="assets/x.svg" alt="">
-        </a>
+    <div class="footer-v2-bottom">
+      <p class="footer-v2-copyright">&copy; 2027 Limitless Reach Football Academy &middot; CAC 9872968</p>
+      <div class="footer-v2-legal">
+        <span class="footer-v2-soon" aria-label="Privacy (coming soon)">Privacy</span>
+        <span class="footer-v2-soon" aria-label="Terms &amp; Conditions (coming soon)">Terms &amp; Conditions</span>
+      </div>
+      <div class="footer-v2-social">
+        <a href="https://www.instagram.com/limitlessreach_fa/" class="footer-v2-social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img src="assets/instagram.svg" alt=""></a>
+        <span class="footer-v2-social-link" role="img" aria-label="YouTube (coming soon)"><img src="assets/youtube.svg" alt=""></span>
+        <span class="footer-v2-social-link" role="img" aria-label="TikTok (coming soon)"><img src="assets/tiktok.svg" alt=""></span>
+        <span class="footer-v2-social-link" role="img" aria-label="Facebook (coming soon)"><img src="assets/facebook.svg" alt=""></span>
+        <a href="https://x.com/limitlessrfa" class="footer-v2-social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img src="assets/x.svg" alt=""></a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js?v=20261004-sponsor-scroll"></script>
+<script src="js/main.js?v=20261023-tilt-carousel"></script>
+<script src="js/motion.js?v=20261023-card-guide"></script>
 
 </body>
 </html>

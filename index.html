@@ -7,12 +7,18 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Oswald:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261008-nocardlift">
+<link rel="stylesheet" href="css/style.css?v=20261028-nav-spec">
+<link rel="stylesheet" href="css/responsive.css?v=20261023-card-number">
+<link rel="stylesheet" href="css/motion.css?v=20261023-card-guide">
+<link rel="preload" href="assets/fonts/Anton-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/InterTight-400.ttf" as="font" type="font/ttf" crossorigin>
 </head>
-<body class="home-page">
+<body class="home-page new-design">
+
+<div class="announcement-bar">
+  <p class="announcement-text"><span class="announcement-text-full">Trials registration is now open for all four programmes.</span><span class="announcement-text-mobile">Trials open for all four programmes.</span></p>
+  <a href="register.html" class="announcement-link">Register for trial</a>
+</div>
 
 <header class="site-header">
   <div class="header-container">
@@ -21,14 +27,16 @@
     </a>
 
     <nav class="nav-links" id="site-navigation">
-      <a href="index.html" class="nav-link active">HOME</a>
-      <a href="the-academy.html" class="nav-link">THE ACADEMY</a>
-      <a href="programmes.html" class="nav-link">PROGRAMMES</a>
-      <a href="news.html" class="nav-link">NEWS</a>
-      <a href="contact.html" class="nav-link">CONTACT</a>
+      <a href="the-academy.html" class="nav-link">The Academy</a>
+      <a href="programmes.html" class="nav-link">Programmes</a>
+      <a href="partners.html" class="nav-link">Partners</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
 
-    <a href="register.html" class="btn-cta">REGISTER FOR TRIAL</a>
+    <a href="register.html" class="btn-cta">Register for Trial</a>
 
     <button class="nav-toggle" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false">
       <span class="nav-toggle-bar"></span>
@@ -65,11 +73,12 @@
 
   <div class="hero-content">
     <img src="assets/hero-badge.svg" alt="Limitless Reach Football Academy" class="hero-badge">
+    <p class="hero-eyebrow">Limitless Reach Football Academy &middot; Ibadan</p>
 
     <h1 class="hero-heading">
-      Developing Players.<br>
-      Unlocking Potential.<br>
-      <span class="accent">Creating Pathways.</span>
+      <span class="hero-line"><span class="hero-line-text">Developing Players.</span></span>
+      <span class="hero-line"><span class="hero-line-text">Unlocking Potential.</span></span>
+      <span class="hero-line"><span class="hero-line-text accent">Creating Pathways.</span></span>
     </h1>
 
     <p class="hero-subtext">Structured football development for young players and adults in Ibadan.</p>
@@ -82,24 +91,30 @@
 </section>
 
 <section class="sponsors">
-  <p class="sponsors-caption">Sponsorship Opportunities Available &bull; Get in Touch</p>
+  <div class="sponsors-bar">
+    <div class="sponsors-heading">
+      <span class="sponsors-dot" aria-hidden="true"></span>
+      <p class="sponsors-caption">Sponsorship Opportunities Available<span class="sponsors-caption-extra"> &bull; Get in Touch</span></p>
+    </div>
+    <a href="sponsors.html#enquiry" class="sponsors-bar-cta">Get in touch</a>
+  </div>
 
   <div class="sponsors-track">
     <div class="sponsors-group">
-      <div class="sponsor-slot">YOUR LOGO HERE</div>
-      <div class="sponsor-slot">SPONSOR SLOT</div>
-      <div class="sponsor-slot">YOUR LOGO HERE</div>
-      <div class="sponsor-slot">PARTNER SLOT</div>
-      <div class="sponsor-slot">YOUR LOGO HERE</div>
-      <div class="sponsor-slot">SPONSOR SLOT</div>
+      <div class="sponsor-slot"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot sponsor-slot--accent"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot sponsor-slot--accent"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
     </div>
     <div class="sponsors-group" aria-hidden="true">
-      <div class="sponsor-slot">YOUR LOGO HERE</div>
-      <div class="sponsor-slot">SPONSOR SLOT</div>
-      <div class="sponsor-slot">YOUR LOGO HERE</div>
-      <div class="sponsor-slot">PARTNER SLOT</div>
-      <div class="sponsor-slot">YOUR LOGO HERE</div>
-      <div class="sponsor-slot">SPONSOR SLOT</div>
+      <div class="sponsor-slot"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot sponsor-slot--accent"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot sponsor-slot--accent"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
+      <div class="sponsor-slot"><span class="sponsor-slot-mark"></span><span class="sponsor-slot-label">Your Logo Here</span></div>
     </div>
   </div>
 </section>
@@ -134,7 +149,7 @@
     </div>
 
     <div class="intro-cta">
-      <a href="the-academy.html#our-philosophy" class="btn-outline-dark"><span class="btn-label">Our Philosophy</span><span class="btn-arrow">&rarr;</span></a>
+      <a href="the-academy.html#our-philosophy" class="btn-outline-dark"><span class="btn-label">Our philosophy</span><span class="btn-arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -149,13 +164,22 @@
       <h2 class="programmes-heading">Four Programmes,<br>One Pathway.</h2>
     </div>
 
-    <div class="programmes-grid">
+    <div class="programmes-bar">
+      <h2 class="programmes-bar-title">Our programmes</h2>
+      <div class="programmes-controls">
+        <a href="programmes.html" class="programmes-viewall">View all</a>
+        <button type="button" class="programmes-arrow programmes-arrow--prev" aria-label="Previous programmes" aria-controls="programmes-scroller"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4.17 6.67 10l5.83 5.83" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" class="programmes-arrow programmes-arrow--next" aria-label="Next programmes" aria-controls="programmes-scroller"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m7.5 4.17 5.83 5.83-5.83 5.83" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+
+    <div class="programmes-grid" id="programmes-scroller">
       <div class="programme-card">
         <span class="programme-number">01</span>
         <h3 class="programme-heading">Foundation</h3>
         <p class="programme-meta">U11 &middot; Ages 9-11</p>
         <p class="programme-text">First touches, balance and coordination, built entirely around enjoying the game.</p>
-        <a href="programmes.html#foundation" class="programme-link">Learn More <span class="btn-arrow">&rarr;</span></a>
+        <a href="programmes.html#foundation" class="programme-link">Learn more <span class="btn-arrow">&rarr;</span></a>
       </div>
 
       <div class="programme-card">
@@ -163,7 +187,7 @@
         <h3 class="programme-heading">Youth</h3>
         <p class="programme-meta">U14 &middot; Ages 12-14</p>
         <p class="programme-text">Where ability becomes technique. Weekly structure, real coaching, a mentor for every player.</p>
-        <a href="programmes.html#youth" class="programme-link">Learn More <span class="btn-arrow">&rarr;</span></a>
+        <a href="programmes.html#youth" class="programme-link">Learn more <span class="btn-arrow">&rarr;</span></a>
       </div>
 
       <div class="programme-card">
@@ -171,7 +195,7 @@
         <h3 class="programme-heading">Development</h3>
         <p class="programme-meta">U17 &middot; Ages 15-17</p>
         <p class="programme-text">Competitive 11-a-side for committed players, with honest, demanding coaching.</p>
-        <a href="programmes.html#development" class="programme-link">Learn More <span class="btn-arrow">&rarr;</span></a>
+        <a href="programmes.html#development" class="programme-link">Learn more <span class="btn-arrow">&rarr;</span></a>
       </div>
 
       <div class="programme-card">
@@ -179,28 +203,8 @@
         <h3 class="programme-heading">Amateur</h3>
         <p class="programme-meta">Ages 18+</p>
         <p class="programme-text">Our senior side. Open to academy graduates and adult players across Ibadan.</p>
-        <a href="programmes.html#amateur" class="programme-link">Learn More <span class="btn-arrow">&rarr;</span></a>
+        <a href="programmes.html#amateur" class="programme-link">Learn more <span class="btn-arrow">&rarr;</span></a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="trials">
-  <div class="trials-inner">
-    <div class="trials-content">
-      <div class="eyebrow eyebrow-gold">
-        <span class="eyebrow-dot"></span>
-        <span>Trials</span>
-      </div>
-      <h2 class="trials-heading">Start Your<br><span class="accent">Journey.</span></h2>
-      <p class="trials-text">Open trials give players the opportunity to experience Limitless Reach and demonstrate their potential.</p>
-      <a href="register.html" class="btn-primary">Register for Trial <span class="btn-arrow">&rarr;</span></a>
-    </div>
-
-    <div class="trials-card">
-      <p class="trials-card-label">Next Trial</p>
-      <h3 class="trials-card-heading">Dates to be Confirmed</h3>
-      <p class="trials-card-text">Open trials will be held in Ibadan. Register your interest to be the first to hear.</p>
     </div>
   </div>
 </section>
@@ -324,6 +328,63 @@
       <h3 class="sponsors-cta-heading">We Are Looking For<br>Sponsors.</h3>
       <a href="sponsors.html" class="btn-dark">Become a Sponsor <span class="btn-arrow">&rarr;</span></a>
     </div>
+
+    <div class="sponsor-showcase">
+      <h2 class="sponsor-showcase-title">Sponsor the academy</h2>
+
+      <div class="sponsor-showcase-cards">
+      <article class="sponsor-panel sponsor-panel--kit">
+        <div class="sponsor-panel-top">
+          <span class="sponsor-panel-number">01</span>
+          <span class="sponsor-panel-label">Kit sponsorship</span>
+        </div>
+        <div class="sponsor-panel-main">
+          <h3 class="sponsor-panel-heading">Your name on the shirt.</h3>
+        </div>
+        <ul class="sponsor-panel-list">
+          <li>Front-of-shirt sponsor</li>
+          <li>Sleeve sponsor</li>
+          <li>Player and coach kit</li>
+        </ul>
+        <a href="sponsors.html#enquiry" class="sponsor-panel-link">Enquire <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+      <article class="sponsor-panel sponsor-panel--digital">
+        <div class="sponsor-panel-top">
+          <span class="sponsor-panel-number">02</span>
+          <span class="sponsor-panel-label">Digital sponsorship</span>
+        </div>
+        <div class="sponsor-panel-main">
+          <h3 class="sponsor-panel-heading">Your logo on every screen.</h3>
+        </div>
+        <ul class="sponsor-panel-list">
+          <li>Logo on limitlessreachfa.com</li>
+          <li>Profile and link on our Partners page</li>
+          <li>Branding on selected social graphics</li>
+        </ul>
+        <a href="sponsors.html#enquiry" class="sponsor-panel-link">Enquire <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+      <article class="sponsor-panel sponsor-panel--scholarship">
+        <div class="sponsor-panel-top">
+          <span class="sponsor-panel-number">03</span>
+          <span class="sponsor-panel-label">Player scholarship</span>
+        </div>
+        <div class="sponsor-panel-main">
+          <h3 class="sponsor-panel-heading">A place for a player.</h3>
+        </div>
+        <ul class="sponsor-panel-list">
+          <li>Funds a player who could not otherwise join</li>
+          <li>Covers training, kit and travel</li>
+          <li>Named scholarship, reported each season</li>
+        </ul>
+        <a href="sponsors.html#enquiry" class="sponsor-panel-link">Enquire <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+      </div>
+
+      <div class="sponsor-showcase-cta">
+        <p class="sponsor-showcase-cta-text">Every partnership is shaped around your goals.</p>
+        <a href="sponsors.html" class="sponsor-showcase-btn">Become a sponsor <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -331,69 +392,84 @@
   <div class="final-cta-inner">
     <h2 class="final-cta-heading">Ready to Reach Further?</h2>
     <p class="final-cta-text">Register for a trial and be the first to hear about dates, training and academy opportunities.</p>
-    <a href="register.html" class="btn-dark">Register for Trial <span class="btn-arrow">&rarr;</span></a>
+    <div class="final-cta-buttons">
+      <a href="register.html" class="btn-dark">Register for Trial <span class="btn-arrow">&rarr;</span></a>
+      <a href="contact.html" class="btn-outline-dark">Contact us</a>
+    </div>
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="footer-logo">
-        <p class="footer-tagline">A grassroots football academy in Ibadan, Oyo State. Developing players, unlocking potential, creating pathways.</p>
-      </div>
+<footer class="site-footer-v2">
+  <img src="assets/hero-badge.svg" alt="" class="footer-v2-watermark" aria-hidden="true">
 
-      <div class="footer-column">
-        <h4 class="footer-heading">The Academy</h4>
-        <ul class="footer-list">
+  <div class="footer-v2-inner">
+    <div class="footer-v2-top">
+      <a href="index.html" class="footer-v2-logo">
+        <img src="assets/hero-badge.svg" alt="Limitless Reach Football Academy" width="52" height="61">
+      </a>
+      <a href="register.html" class="footer-v2-cta">Register for trial <span class="footer-v2-cta-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <div class="footer-v2-columns">
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">The Academy</h4>
+        <ul class="footer-v2-list">
           <li><a href="the-academy.html#our-story">Our Story</a></li>
           <li><a href="the-academy.html#our-philosophy">Our Philosophy</a></li>
           <li><a href="the-academy.html#leadership">Leadership</a></li>
           <li><a href="the-academy.html#safeguarding">Safeguarding</a></li>
         </ul>
       </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">Get Involved</h4>
-        <ul class="footer-list">
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Explore</h4>
+        <ul class="footer-v2-list">
           <li><a href="programmes.html">Programmes</a></li>
-          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="partners.html">Partners</a></li>
           <li><a href="news.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Get Involved</h4>
+        <ul class="footer-v2-list">
+          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="sponsors.html">Become a Sponsor</a></li>
+          <li><a href="careers.html">Careers</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">Get in Touch</h4>
-        <ul class="footer-list">
-          <li><a href="mailto:operations@limitlessreachfa.com" class="footer-list-link footer-list-link--mail">operations@limitlessreachfa.com</a></li>
-          <li><a href="tel:+2348000000000" class="footer-list-link footer-list-link--phone">+234 800 000 0000</a></li>
-          <li><a href="https://www.instagram.com/limitlessreach_fa/" class="footer-list-link footer-list-link--instagram" aria-label="Instagram @limitlessreach_fa (opens in a new tab)" target="_blank" rel="noopener noreferrer">@limitlessreach_fa</a></li>
-          <li><a href="https://x.com/limitlessrfa" class="footer-list-link footer-list-link--x" aria-label="X @LimitlessRFA (opens in a new tab)" target="_blank" rel="noopener noreferrer">@LimitlessRFA</a></li>
-          <li class="footer-list-item footer-list-item--location">Bodija, Ibadan &middot; Oyo State</li>
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Get in Touch</h4>
+        <ul class="footer-v2-list">
+          <li><a href="mailto:operations@limitlessreachfa.com">operations@limitlessreachfa.com</a></li>
+          <li><a href="mailto:trials@limitlessreachfa.com">trials@limitlessreachfa.com</a></li>
+          <li><a href="mailto:partnerships@limitlessreachfa.com">partnerships@limitlessreachfa.com</a></li>
+          <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copyright">&copy; 2027 Limitless Reach Football Academy &middot; Ibadan, Nigeria</p>
+    <div class="footer-v2-office">
+      <h4 class="footer-v2-office-label">Registered Office</h4>
+      <address class="footer-v2-address">Team One Hub, Olona Filling Station, Beside Access Bank Sabo, Ojoo, Ibadan, Oyo State</address>
+      <div class="footer-v2-cac">
+        <span class="footer-v2-cac-label">CAC Reg. No.</span>
+        <span class="footer-v2-cac-number">9872968</span>
+      </div>
+    </div>
 
-      <div class="footer-social">
-        <a href="https://www.instagram.com/limitlessreach_fa/" class="social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-          <img src="assets/instagram.svg" alt="">
-        </a>
-        <span class="social-link" role="img" aria-label="YouTube (coming soon)">
-          <img src="assets/youtube.svg" alt="">
-        </span>
-        <span class="social-link" role="img" aria-label="TikTok (coming soon)">
-          <img src="assets/tiktok.svg" alt="">
-        </span>
-        <span class="social-link" role="img" aria-label="Facebook (coming soon)">
-          <img src="assets/facebook.svg" alt="">
-        </span>
-        <a href="https://x.com/limitlessrfa" class="social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-          <img src="assets/x.svg" alt="">
-        </a>
+    <div class="footer-v2-bottom">
+      <p class="footer-v2-copyright">&copy; 2027 Limitless Reach Football Academy &middot; CAC 9872968</p>
+      <div class="footer-v2-legal">
+        <span class="footer-v2-soon" aria-label="Privacy (coming soon)">Privacy</span>
+        <span class="footer-v2-soon" aria-label="Terms &amp; Conditions (coming soon)">Terms &amp; Conditions</span>
+      </div>
+      <div class="footer-v2-social">
+        <a href="https://www.instagram.com/limitlessreach_fa/" class="footer-v2-social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img src="assets/instagram.svg" alt=""></a>
+        <span class="footer-v2-social-link" role="img" aria-label="YouTube (coming soon)"><img src="assets/youtube.svg" alt=""></span>
+        <span class="footer-v2-social-link" role="img" aria-label="TikTok (coming soon)"><img src="assets/tiktok.svg" alt=""></span>
+        <span class="footer-v2-social-link" role="img" aria-label="Facebook (coming soon)"><img src="assets/facebook.svg" alt=""></span>
+        <a href="https://x.com/limitlessrfa" class="footer-v2-social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img src="assets/x.svg" alt=""></a>
       </div>
     </div>
   </div>
@@ -411,7 +487,8 @@
     }
   });
 </script>
-<script src="js/main.js?v=20261004-sponsor-scroll"></script>
+<script src="js/main.js?v=20261023-tilt-carousel"></script>
+<script src="js/motion.js?v=20261023-card-guide"></script>
 
 </body>
 </html>

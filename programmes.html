@@ -7,12 +7,18 @@
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20261008-nocardlift">
+<link rel="stylesheet" href="css/style.css?v=20261028-nav-spec">
+<link rel="stylesheet" href="css/responsive.css?v=20261028-programme-rows">
+<link rel="stylesheet" href="css/motion.css?v=20261023-card-guide">
+<link rel="preload" href="assets/fonts/Anton-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/InterTight-400.ttf" as="font" type="font/ttf" crossorigin>
 </head>
-<body>
+<body class="programmes-page new-design">
+
+<div class="announcement-bar">
+  <p class="announcement-text"><span class="announcement-text-full">Trials registration is now open for all four programmes.</span><span class="announcement-text-mobile">Trials open for all four programmes.</span></p>
+  <a href="register.html" class="announcement-link">Register for trial</a>
+</div>
 
 <header class="site-header">
   <div class="header-container">
@@ -21,14 +27,16 @@
     </a>
 
     <nav class="nav-links" id="site-navigation">
-      <a href="index.html" class="nav-link">HOME</a>
-      <a href="the-academy.html" class="nav-link">THE ACADEMY</a>
-      <a href="programmes.html" class="nav-link active">PROGRAMMES</a>
-      <a href="news.html" class="nav-link">NEWS</a>
-      <a href="contact.html" class="nav-link">CONTACT</a>
+      <a href="the-academy.html" class="nav-link">The Academy</a>
+      <a href="programmes.html" class="nav-link active" aria-current="page">Programmes</a>
+      <a href="partners.html" class="nav-link">Partners</a>
+      <a href="news.html" class="nav-link">News</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="careers.html" class="nav-link">Careers</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
 
-    <a href="register.html" class="btn-cta">REGISTER FOR TRIAL</a>
+    <a href="register.html" class="btn-cta">Register for Trial</a>
 
     <button class="nav-toggle" aria-label="Open menu" aria-controls="site-navigation" aria-expanded="false">
       <span class="nav-toggle-bar"></span>
@@ -39,6 +47,7 @@
 </header>
 
 <section class="page-header">
+  <img src="assets/hero-badge.svg" alt="" class="page-header-watermark" aria-hidden="true">
   <div class="page-header-inner">
     <div class="eyebrow eyebrow-gold">
       <span class="eyebrow-dot"></span>
@@ -56,93 +65,72 @@
       <div class="programme-detail-top">
         <span class="programme-detail-number">01</span>
         <h2 class="programme-detail-heading">Foundation</h2>
-        <p class="programme-detail-meta">U11 &middot; Ages 9-11</p>
-        <p class="programme-detail-text">Our entry point, where young players fall in love with the game and build the coordination everything else is layered on.</p>
+        <p class="programme-detail-meta">Ages 9&ndash;11 &middot; U11</p>
+        <p class="programme-detail-text">Where young players fall in love with the game.</p>
       </div>
       <div class="programme-detail-fields">
         <div class="programme-field">
-          <span class="programme-field-label">Who It Is For</span>
-          <p class="programme-field-text">Boys and girls aged 9 to 11, with or without any organised football experience.</p>
+          <span class="programme-field-label">Who</span>
+          <p class="programme-field-text">Boys and girls, no experience needed</p>
         </div>
         <div class="programme-field">
-          <span class="programme-field-label">Development Focus</span>
-          <p class="programme-field-text">First touch, balance, coordination and confidence. Enjoyment is the measure of success.</p>
+          <span class="programme-field-label">Focus</span>
+          <p class="programme-field-text">First touch, balance, confidence</p>
         </div>
         <div class="programme-field">
-          <span class="programme-field-label">What Players Learn</span>
-          <p class="programme-field-text">Ball mastery, dribbling, simple passing and receiving, and how to be a good teammate.</p>
-        </div>
-        <div class="programme-field">
-          <span class="programme-field-label">Training Approach</span>
-          <p class="programme-field-text">Short, high-energy sessions built on small-sided games. Lots of touches, very little queueing.</p>
-        </div>
-        <div class="programme-field">
-          <span class="programme-field-label">Match Opportunities</span>
-          <p class="programme-field-text">Internal small-sided games and friendly festivals, with equal playing time for every child.</p>
+          <span class="programme-field-label">Matches</span>
+          <p class="programme-field-text">Small-sided games and festivals</p>
         </div>
       </div>
+      <a href="register.html" class="programme-detail-link">Register for trial <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
     </article>
 
     <article class="programme-detail-card" id="youth">
       <div class="programme-detail-top">
         <span class="programme-detail-number">02</span>
         <h2 class="programme-detail-heading">Youth</h2>
-        <p class="programme-detail-meta">U14 &middot; Ages 12-14</p>
-        <p class="programme-detail-text">The phase where raw ability becomes real technique, and players begin to understand the game as well as play it.</p>
+        <p class="programme-detail-meta">Ages 12&ndash;14 &middot; U14</p>
+        <p class="programme-detail-text">Where ability turns into real technique.</p>
       </div>
       <div class="programme-detail-fields">
         <div class="programme-field">
-          <span class="programme-field-label">Who It Is For</span>
-          <p class="programme-field-text">Players aged 12 to 14 ready to train consistently on a structured weekly programme.</p>
+          <span class="programme-field-label">Who</span>
+          <p class="programme-field-text">Players ready for weekly training</p>
         </div>
         <div class="programme-field">
-          <span class="programme-field-label">Development Focus</span>
-          <p class="programme-field-text">Technical repetition under pressure, positional understanding and physical literacy.</p>
+          <span class="programme-field-label">Focus</span>
+          <p class="programme-field-text">Passing, positions, decision making</p>
         </div>
         <div class="programme-field">
-          <span class="programme-field-label">What Players Learn</span>
-          <p class="programme-field-text">Passing range, first touch under pressure, one-v-one play, positional roles and decision making.</p>
-        </div>
-        <div class="programme-field">
-          <span class="programme-field-label">Training Approach</span>
-          <p class="programme-field-text">Themed weekly blocks with clear objectives. Every player is paired with a mentor.</p>
-        </div>
-        <div class="programme-field">
-          <span class="programme-field-label">Match Opportunities</span>
-          <p class="programme-field-text">Competitive fixtures against academies and school sides around Ibadan, plus tournaments.</p>
+          <span class="programme-field-label">Matches</span>
+          <p class="programme-field-text">Fixtures and tournaments in Ibadan</p>
         </div>
       </div>
+      <a href="register.html" class="programme-detail-link">Register for trial <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
     </article>
 
     <article class="programme-detail-card" id="development">
       <div class="programme-detail-top">
         <span class="programme-detail-number">03</span>
         <h2 class="programme-detail-heading">Development</h2>
-        <p class="programme-detail-meta">U17 &middot; Ages 15-17</p>
-        <p class="programme-detail-text">Our most competitive youth programme, for players who are serious about how far football can take them.</p>
+        <p class="programme-detail-meta">Ages 15&ndash;17 &middot; U17</p>
+        <p class="programme-detail-text">For players serious about their football.</p>
       </div>
       <div class="programme-detail-fields">
         <div class="programme-field">
-          <span class="programme-field-label">Who It Is For</span>
-          <p class="programme-field-text">Committed players aged 15 to 17 ready for 11-a-side football and demanding coaching.</p>
+          <span class="programme-field-label">Who</span>
+          <p class="programme-field-text">Committed players ready for 11-a-side</p>
         </div>
         <div class="programme-field">
-          <span class="programme-field-label">Development Focus</span>
-          <p class="programme-field-text">Game intelligence, tactical detail, conditioning and preparation for senior football.</p>
+          <span class="programme-field-label">Focus</span>
+          <p class="programme-field-text">Tactics, fitness, game intelligence</p>
         </div>
         <div class="programme-field">
-          <span class="programme-field-label">What Players Learn</span>
-          <p class="programme-field-text">Advanced positional play, pressing and defensive structure, set pieces, professional habits.</p>
-        </div>
-        <div class="programme-field">
-          <span class="programme-field-label">Training Approach</span>
-          <p class="programme-field-text">Higher-volume training with video review and individual plans, built around school.</p>
-        </div>
-        <div class="programme-field">
-          <span class="programme-field-label">Match Opportunities</span>
-          <p class="programme-field-text">A full 11-a-side fixture programme, showcase matches and exposure to trial opportunities.</p>
+          <span class="programme-field-label">Matches</span>
+          <p class="programme-field-text">Full fixture list and showcase games</p>
         </div>
       </div>
+      <a href="register.html" class="programme-detail-link">Register for trial <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
     </article>
 
     <article class="programme-detail-card" id="amateur">
@@ -150,30 +138,23 @@
         <span class="programme-detail-number">04</span>
         <h2 class="programme-detail-heading">Amateur</h2>
         <p class="programme-detail-meta">Ages 18+</p>
-        <p class="programme-detail-text">Our senior side. The next step for graduating players and an open door for adult footballers across Ibadan.</p>
+        <p class="programme-detail-text">Our senior side, open to adults across Ibadan.</p>
       </div>
       <div class="programme-detail-fields">
         <div class="programme-field">
-          <span class="programme-field-label">Who It Is For</span>
-          <p class="programme-field-text">Adults aged 18 and over, including academy graduates and walk-on local players.</p>
+          <span class="programme-field-label">Who</span>
+          <p class="programme-field-text">Academy graduates and local adults</p>
         </div>
         <div class="programme-field">
-          <span class="programme-field-label">Development Focus</span>
-          <p class="programme-field-text">Competitive performance, fitness, team structure and leadership on and off the pitch.</p>
+          <span class="programme-field-label">Focus</span>
+          <p class="programme-field-text">Competitive performance and leadership</p>
         </div>
         <div class="programme-field">
-          <span class="programme-field-label">What Players Learn</span>
-          <p class="programme-field-text">Senior tactical systems, game management, and the discipline of competing as a squad.</p>
-        </div>
-        <div class="programme-field">
-          <span class="programme-field-label">Training Approach</span>
-          <p class="programme-field-text">Evening training designed around work and study, with emphasis on conditioning.</p>
-        </div>
-        <div class="programme-field">
-          <span class="programme-field-label">Match Opportunities</span>
-          <p class="programme-field-text">Competitive local league and cup football representing Limitless Reach at senior level.</p>
+          <span class="programme-field-label">Matches</span>
+          <p class="programme-field-text">Local league and cup football</p>
         </div>
       </div>
+      <a href="register.html" class="programme-detail-link">Register for trial <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
     </article>
 
   </div>
@@ -223,71 +204,84 @@
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="assets/lrfc-logo.svg" alt="Limitless Reach Football Academy" class="footer-logo">
-        <p class="footer-tagline">A grassroots football academy in Ibadan, Oyo State. Developing players, unlocking potential, creating pathways.</p>
-      </div>
+<footer class="site-footer-v2">
+  <img src="assets/hero-badge.svg" alt="" class="footer-v2-watermark" aria-hidden="true">
 
-      <div class="footer-column">
-        <h4 class="footer-heading">The Academy</h4>
-        <ul class="footer-list">
+  <div class="footer-v2-inner">
+    <div class="footer-v2-top">
+      <a href="index.html" class="footer-v2-logo">
+        <img src="assets/hero-badge.svg" alt="Limitless Reach Football Academy" width="52" height="61">
+      </a>
+      <a href="register.html" class="footer-v2-cta">Register for trial <span class="footer-v2-cta-arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <div class="footer-v2-columns">
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">The Academy</h4>
+        <ul class="footer-v2-list">
           <li><a href="the-academy.html#our-story">Our Story</a></li>
           <li><a href="the-academy.html#our-philosophy">Our Philosophy</a></li>
           <li><a href="the-academy.html#leadership">Leadership</a></li>
           <li><a href="the-academy.html#safeguarding">Safeguarding</a></li>
         </ul>
       </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">Get Involved</h4>
-        <ul class="footer-list">
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Explore</h4>
+        <ul class="footer-v2-list">
           <li><a href="programmes.html">Programmes</a></li>
-          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="partners.html">Partners</a></li>
           <li><a href="news.html">News</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Get Involved</h4>
+        <ul class="footer-v2-list">
+          <li><a href="register.html">Register for Trial</a></li>
+          <li><a href="sponsors.html">Become a Sponsor</a></li>
+          <li><a href="careers.html">Careers</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
-
-      <div class="footer-column">
-        <h4 class="footer-heading">Get in Touch</h4>
-        <ul class="footer-list">
-          <li><a href="mailto:operations@limitlessreachfa.com" class="footer-list-link footer-list-link--mail">operations@limitlessreachfa.com</a></li>
-          <li><a href="tel:+2348000000000" class="footer-list-link footer-list-link--phone">+234 800 000 0000</a></li>
-          <li><a href="https://www.instagram.com/limitlessreach_fa/" class="footer-list-link footer-list-link--instagram" aria-label="Instagram @limitlessreach_fa (opens in a new tab)" target="_blank" rel="noopener noreferrer">@limitlessreach_fa</a></li>
-          <li><a href="https://x.com/limitlessrfa" class="footer-list-link footer-list-link--x" aria-label="X @LimitlessRFA (opens in a new tab)" target="_blank" rel="noopener noreferrer">@LimitlessRFA</a></li>
-          <li class="footer-list-item footer-list-item--location">Bodija, Ibadan &middot; Oyo State</li>
+      <div class="footer-v2-col">
+        <h4 class="footer-v2-heading">Get in Touch</h4>
+        <ul class="footer-v2-list">
+          <li><a href="mailto:operations@limitlessreachfa.com">operations@limitlessreachfa.com</a></li>
+          <li><a href="mailto:trials@limitlessreachfa.com">trials@limitlessreachfa.com</a></li>
+          <li><a href="mailto:partnerships@limitlessreachfa.com">partnerships@limitlessreachfa.com</a></li>
+          <li><a href="tel:+2348000000000">+234 800 000 0000</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copyright">&copy; 2027 Limitless Reach Football Academy &middot; Ibadan, Nigeria</p>
+    <div class="footer-v2-office">
+      <h4 class="footer-v2-office-label">Registered Office</h4>
+      <address class="footer-v2-address">Team One Hub, Olona Filling Station, Beside Access Bank Sabo, Ojoo, Ibadan, Oyo State</address>
+      <div class="footer-v2-cac">
+        <span class="footer-v2-cac-label">CAC Reg. No.</span>
+        <span class="footer-v2-cac-number">9872968</span>
+      </div>
+    </div>
 
-      <div class="footer-social">
-        <a href="https://www.instagram.com/limitlessreach_fa/" class="social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-          <img src="assets/instagram.svg" alt="">
-        </a>
-        <span class="social-link" role="img" aria-label="YouTube (coming soon)">
-          <img src="assets/youtube.svg" alt="">
-        </span>
-        <span class="social-link" role="img" aria-label="TikTok (coming soon)">
-          <img src="assets/tiktok.svg" alt="">
-        </span>
-        <span class="social-link" role="img" aria-label="Facebook (coming soon)">
-          <img src="assets/facebook.svg" alt="">
-        </span>
-        <a href="https://x.com/limitlessrfa" class="social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer">
-          <img src="assets/x.svg" alt="">
-        </a>
+    <div class="footer-v2-bottom">
+      <p class="footer-v2-copyright">&copy; 2027 Limitless Reach Football Academy &middot; CAC 9872968</p>
+      <div class="footer-v2-legal">
+        <span class="footer-v2-soon" aria-label="Privacy (coming soon)">Privacy</span>
+        <span class="footer-v2-soon" aria-label="Terms &amp; Conditions (coming soon)">Terms &amp; Conditions</span>
+      </div>
+      <div class="footer-v2-social">
+        <a href="https://www.instagram.com/limitlessreach_fa/" class="footer-v2-social-link" aria-label="Instagram (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img src="assets/instagram.svg" alt=""></a>
+        <span class="footer-v2-social-link" role="img" aria-label="YouTube (coming soon)"><img src="assets/youtube.svg" alt=""></span>
+        <span class="footer-v2-social-link" role="img" aria-label="TikTok (coming soon)"><img src="assets/tiktok.svg" alt=""></span>
+        <span class="footer-v2-social-link" role="img" aria-label="Facebook (coming soon)"><img src="assets/facebook.svg" alt=""></span>
+        <a href="https://x.com/limitlessrfa" class="footer-v2-social-link" aria-label="X (opens in a new tab)" target="_blank" rel="noopener noreferrer"><img src="assets/x.svg" alt=""></a>
       </div>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js?v=20261004-sponsor-scroll"></script>
+<script src="js/main.js?v=20261023-tilt-carousel"></script>
+<script src="js/motion.js?v=20261023-card-guide"></script>
 
 </body>
 </html>
