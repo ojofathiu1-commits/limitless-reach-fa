@@ -24,7 +24,16 @@
   src: url('../assets/fonts/Oswald-Bold.ttf') format('truetype');
 }
 
+html {
+  overflow-x: hidden;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+  touch-action: manipulation;
+}
+
 body {
+  overflow-x: hidden;
+  overflow-x: clip;
   font-family: 'Inter Tight', 'Inter', sans-serif;
 }
 
@@ -419,6 +428,8 @@ article[id] {
 }
 
 .sponsors {
+  position: relative;
+  isolation: isolate;
   padding: 30px 0;
   background: var(--brand-cream);
   border-top: 1px solid rgba(12, 12, 10, 0.12);
