@@ -5,6 +5,8 @@
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const mouseInput = window.matchMedia('(any-hover: hover) and (any-pointer: fine)');
+  const mobileCarousel = window.matchMedia('(max-width: 1024px)');
+  const programmeCarousel = document.querySelector('.home-page .programmes-grid');
   const pending = new Set();
   const animations = new Map();
   let observer;
@@ -96,13 +98,14 @@
     if (immediate || reducedMotion.matches || !element.animate) return;
 
     const opacity = getComputedStyle(element).opacity;
+    const isCarousel = element === programmeCarousel;
     const animation = element.animate(
-      [
+      isCarousel ? [{ opacity: 0 }, { opacity }] : [
         { opacity: 0, translate: '0 28px' },
         { opacity, translate: '0 0' }
       ],
       {
-        duration: 650,
+        duration: isCarousel ? 300 : 650,
         delay: Number(element.dataset.motionDelay || 0),
         easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
         fill: 'backwards'
@@ -137,12 +140,15 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
 
-    const elements = Array.from(document.querySelectorAll(revealSelector));
+    const elements = Array.from(document.querySelectorAll(revealSelector)).filter(element =>
+      !mobileCarousel.matches || !element.matches('.home-page .programme-card')
+    );
+    if (mobileCarousel.matches && programmeCarousel) elements.push(programmeCarousel);
     elements.forEach(element => {
       // An animated parent already reveals all of its content together.
       if (elements.some(parent => parent !== element && parent.contains(element))) return;
       const siblings = Array.from(element.parentElement.children).filter(sibling => elements.includes(sibling));
-      element.dataset.motionDelay = String(Math.min(siblings.indexOf(element), 3) * 100);
+      element.dataset.motionDelay = element === programmeCarousel ? '0' : String(Math.min(siblings.indexOf(element), 3) * 100);
       element.classList.add('motion-pending');
       pending.add(element);
       observer.observe(element);
@@ -228,6 +234,7 @@
         return;
       }
       if (!mouseInput.matches || reducedMotion.matches) return;
+      if (mobileCarousel.matches && card.matches('.home-page .programme-card')) return;
       if (!bounds) {
         const rect = card.getBoundingClientRect();
         // Use the layout dimensions so the changing 3D outline cannot feed back into the tilt.
@@ -265,6 +272,16 @@
   window.addEventListener('resize', () => invalidateTiltBounds.forEach(invalidate => invalidate()));
   window.addEventListener('blur', () => resetters.forEach(reset => reset()));
   mouseInput.addEventListener('change', () => resetters.forEach(reset => reset()));
+  mobileCarousel.addEventListener('change', () => {
+    resetters.forEach(reset => reset());
+    if (!mobileCarousel.matches) return;
+    pending.forEach(element => {
+      if (element.matches('.home-page .programme-card')) reveal(element, true);
+    });
+    animations.forEach((animation, element) => {
+      if (element.matches('.home-page .programme-card')) animation.cancel();
+    });
+  });
   reducedMotion.addEventListener('change', () => {
     resetters.forEach(reset => reset());
     updateHeroScroll();

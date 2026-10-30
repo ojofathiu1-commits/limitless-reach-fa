@@ -414,7 +414,7 @@
   .home-page .programmes-bar { height: auto; gap: 18px; flex-wrap: wrap; }
   .home-page .programmes-bar-title { font-size: 24px; }
   .home-page .programmes-controls { gap: 8px; }
-  .home-page .programmes-grid { width: 100%; gap: 14px; }
+  .home-page .programmes-grid { width: 100%; gap: 14px; overscroll-behavior-x: none; }
   .home-page .programme-card { flex: 0 0 calc((100% - 14px) / 2); height: auto; min-height: 400px; padding: 28px; }
   .home-page .programme-number { position: static; display: block; height: auto; margin: 0 0 8px; font-size: 120px; line-height: 1; }
   .home-page .programme-heading { font-size: 44px; line-height: 1; }
@@ -549,6 +549,7 @@
   .home-page .card-text { font-size: 16px; line-height: 25px; }
 
   .home-page .programme-card { flex-basis: 90%; min-height: 360px; padding: 24px; }
+  .home-page .programmes-grid::after { content: ''; flex: 0 0 max(0px, calc(10% - 14px)); }
   .home-page .programme-number { font-size: 96px; }
   .home-page .programme-heading { font-size: clamp(32px, 9vw, 40px); }
   .home-page .programme-text { padding: 8px 0 12px; }

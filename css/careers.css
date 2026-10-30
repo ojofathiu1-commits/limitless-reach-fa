@@ -1,26 +1,4 @@
-.careers-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 5.29px;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 19px;
-  letter-spacing: 1.68px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.careers-back-link:hover {
-  color: #FFFFFF;
-}
-
 @media (min-width: 1025px) {
-  .careers-page.new-design .page-header-inner {
-    padding-top: 6px;
-  }
-
   .careers-page.new-design .page-header-heading {
     line-height: 0.8817;
   }
@@ -30,7 +8,7 @@
   }
 
   .careers-page.new-design .page-header-watermark {
-    top: 184.17px;
+    top: 136.98px;
   }
 }
 

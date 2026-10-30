@@ -1,32 +1,10 @@
 /* Sponsor page — supplied Figma header and sponsorship section. */
-.sponsors-page.new-design .page-header-inner {
-  padding-top: 6px;
-}
-
 .sponsors-page.new-design .page-header-heading {
   line-height: 0.8817;
 }
 
 .sponsors-page.new-design .page-header-watermark {
-  top: 214.17px;
-}
-
-.sponsor-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 5.29px;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 19px;
-  letter-spacing: 1.68px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.sponsor-back-link:hover {
-  color: #FFFFFF;
+  top: 166.47px;
 }
 
 /* Three Ways to Sponsor — supplied 1380px container and 404px cards. */

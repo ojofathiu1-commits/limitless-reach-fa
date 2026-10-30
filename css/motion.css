@@ -30,6 +30,10 @@
   translate: 0 28px;
 }
 
+.home-page.new-design .programmes-grid.motion-pending {
+  translate: none;
+}
+
 .new-design :is(.motion-tilt, .programme-detail-card, .news-card, .sponsor-card) {
   transition: transform 240ms ease, box-shadow 240ms ease, background-color 200ms ease, border-color 200ms ease;
 }
@@ -131,6 +135,11 @@
     background: #F68221;
     border-color: #F68221;
     color: #141313;
+  }
+
+  .home-page.new-design .programme-card:first-child .programme-link:hover {
+    background: #FBF1E6;
+    border-color: #FBF1E6;
   }
 
   .new-design .footer-v2-cta:hover {

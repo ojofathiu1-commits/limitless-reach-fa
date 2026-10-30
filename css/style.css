@@ -1812,13 +1812,132 @@ article[id] {
 
 .form-is-complete > .form-confirmation {
   display: flex;
-  animation: form-confirmation-in 0.35s ease both;
 }
 
-@keyframes form-confirmation-in {
+.form-confirmation-tick {
+  position: relative;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--brand-orange);
+}
+
+.form-confirmation-tick::before,
+.form-confirmation-tick::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.form-confirmation-tick::before {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' stroke='%230C0C0A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 24px 24px no-repeat;
+}
+
+.form-confirmation-tick::after {
+  border: 2px solid var(--brand-orange);
+  opacity: 0;
+}
+
+.form-confirmation .form-legend {
+  --rule-color: var(--brand-ink);
+  --rule-width: 2px;
+  padding-bottom: calc(14px + var(--rule-width));
+  border-bottom: 0;
+  background: linear-gradient(var(--rule-color), var(--rule-color)) left bottom / 100% var(--rule-width) no-repeat;
+}
+
+.form-is-complete::before,
+.form-is-complete .register-card::before {
+  transform-origin: left center;
+  animation: form-bar-fill 900ms cubic-bezier(0.65, 0, 0.35, 1) 100ms both;
+}
+
+.form-is-complete .form-confirmation-tick {
+  animation: form-tick-pop 560ms cubic-bezier(0.34, 1.56, 0.64, 1) 200ms both;
+}
+
+.form-is-complete .form-confirmation-tick::before {
+  animation: form-tick-draw 380ms cubic-bezier(0.65, 0, 0.35, 1) 560ms both;
+}
+
+.form-is-complete .form-confirmation-tick::after {
+  animation: form-tick-ring 900ms cubic-bezier(0.22, 1, 0.36, 1) 460ms both;
+}
+
+.form-is-complete .form-confirmation .form-legend-eyebrow {
+  animation: form-rise 650ms cubic-bezier(0.22, 1, 0.36, 1) 400ms both;
+}
+
+.form-is-complete .form-confirmation .form-legend-heading {
+  animation: form-heading-in 750ms cubic-bezier(0.22, 1, 0.36, 1) 480ms both;
+}
+
+.form-is-complete .form-confirmation .form-legend {
+  animation: form-rule-draw 700ms cubic-bezier(0.65, 0, 0.35, 1) 620ms both;
+}
+
+.form-is-complete .form-confirmation > .form-confirmation-text {
+  animation: form-rise 650ms cubic-bezier(0.22, 1, 0.36, 1) 740ms both;
+}
+
+.form-is-complete .form-confirmation > .form-confirmation-text + .form-confirmation-text {
+  animation-delay: 820ms;
+}
+
+.form-is-complete .form-confirmation > .form-confirmation-actions {
+  animation: form-rise 650ms cubic-bezier(0.22, 1, 0.36, 1) 900ms both;
+}
+
+@keyframes form-bar-fill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes form-tick-pop {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: scale(0.4);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes form-tick-draw {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes form-tick-ring {
+  from {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.9);
+  }
+}
+
+@keyframes form-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
 
   to {
@@ -1827,17 +1946,43 @@ article[id] {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .form-is-complete > .form-confirmation {
-    animation: none;
+@keyframes form-heading-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.5em);
+    clip-path: inset(100% -0.2em -0.3em -0.2em);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(-0.3em -0.2em -0.3em -0.2em);
   }
 }
 
-.form-confirmation-tick {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--brand-orange) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5' stroke='%230C0C0A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 24px 24px no-repeat;
+@keyframes form-rule-draw {
+  from {
+    background-size: 0% var(--rule-width);
+  }
+
+  to {
+    background-size: 100% var(--rule-width);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .form-is-complete::before,
+  .form-is-complete .register-card::before,
+  .form-is-complete .form-confirmation-tick,
+  .form-is-complete .form-confirmation-tick::before,
+  .form-is-complete .form-confirmation-tick::after,
+  .form-is-complete .form-confirmation .form-legend,
+  .form-is-complete .form-confirmation .form-legend-eyebrow,
+  .form-is-complete .form-confirmation .form-legend-heading,
+  .form-is-complete .form-confirmation > .form-confirmation-text,
+  .form-is-complete .form-confirmation > .form-confirmation-actions {
+    animation: none;
+  }
 }
 
 .form-confirmation-text {
@@ -6078,7 +6223,7 @@ article[id] {
     height: 75px;
     padding: 0 clamp(24px, 4.37vw, 66px);
     background: #FFFFFF;
-    border-bottom: 1px solid #141313;
+    border-bottom: 0;
     backdrop-filter: none;
   }
 
@@ -7213,6 +7358,12 @@ article[id] {
   color: rgba(255, 255, 255, 0.7);
 }
 
+.footer-v2-legal a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
 .footer-v2-social {
   display: flex;
   align-items: center;
@@ -7314,6 +7465,13 @@ article[id] {
   }
 }
 
+/* The registration CTA stays selected on touch devices, independently of hover. */
+.new-design .site-header .btn-cta[aria-current="page"] {
+  background: #141313;
+  border-color: #141313;
+  color: #FFFFFF;
+}
+
 /* New design — current-page nav link. */
 .new-design .nav-link.active {
   background: transparent;
@@ -7322,6 +7480,81 @@ article[id] {
   text-decoration: underline;
   text-underline-offset: 6px;
   text-decoration-thickness: 1.5px;
+}
+
+/* Desktop navigation: a quiet hover surface, a clear current page, and no layout shift. */
+@media (min-width: 1025px) {
+  .new-design .site-header .nav-link {
+    transition: color 180ms ease, background-color 180ms ease;
+  }
+
+  .new-design .site-header .nav-link.active {
+    color: var(--brand-link);
+    text-decoration-color: var(--brand-orange);
+  }
+
+  .new-design .site-header .nav-link:focus-visible {
+    background-color: var(--brand-cream);
+    outline: 2px solid var(--brand-link);
+    outline-offset: 2px;
+  }
+
+  .new-design .site-header .nav-link:active {
+    background-color: #F8E2CE;
+    color: var(--brand-link);
+    transition-duration: 80ms;
+  }
+}
+
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  .new-design .site-header .nav-link:hover {
+    background-color: var(--brand-cream);
+    color: var(--brand-link);
+  }
+
+  .new-design .site-header .nav-link:active {
+    background-color: #F8E2CE;
+  }
+}
+
+/* Let normal page navigation blend the nav states while the header stays still.
+   The existing underline is part of the link snapshot; its geometry is unchanged.
+   Browsers without cross-document transitions continue to use ordinary links. */
+@media (min-width: 1025px) and (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  .new-design .announcement-bar { view-transition-name: site-announcement; }
+  .new-design .site-header { view-transition-name: site-header; }
+  .new-design .nav-links { view-transition-name: site-navigation; }
+
+  ::view-transition-group(site-navigation),
+  ::view-transition-old(site-navigation),
+  ::view-transition-new(site-navigation) {
+    animation-duration: 180ms;
+    animation-timing-function: ease-out;
+  }
+
+  ::view-transition-group(root),
+  ::view-transition-group(site-announcement),
+  ::view-transition-group(site-header),
+  ::view-transition-new(root),
+  ::view-transition-new(site-announcement),
+  ::view-transition-new(site-header) {
+    animation: none;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-old(site-announcement),
+  ::view-transition-old(site-header) {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@media (min-width: 1025px) and (prefers-reduced-motion: reduce) {
+  .new-design .site-header .nav-link { transition: none; }
 }
 
 /* New design — inner page header (The Academy and later pages), desktop. */
@@ -7970,7 +8203,34 @@ article[id] {
 
 /* New design — Programmes page header. The badge sits higher than on The Academy. */
 .programmes-page .page-header-watermark {
-  top: 134.98px;
+  top: 182.17px;
+}
+
+.page-back-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 8px;
+  padding-bottom: 5.29px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18.5px;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.18s ease;
+}
+
+.page-back-link:hover,
+.page-back-link:focus-visible {
+  color: #FFFFFF;
+}
+
+@media (min-width: 1025px) {
+  .programmes-page .page-header-inner {
+    padding-top: 6px;
+  }
 }
 
 /* New design — Programmes cards. */
@@ -9708,13 +9968,6 @@ html:has(.gallery-dialog[open]) {
 
 .register-main.form-is-complete .register-card > .form-confirmation {
   display: flex;
-  animation: form-confirmation-in 0.35s ease both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .register-main.form-is-complete .register-card > .form-confirmation {
-    animation: none;
-  }
 }
 
 .register-page.new-design .form-fieldset {
@@ -9971,8 +10224,9 @@ html:has(.gallery-dialog[open]) {
 }
 
 .register-page.new-design .form-confirmation .form-legend {
+  --rule-color: rgba(20, 19, 19, 0.08);
+  --rule-width: 1px;
   align-items: flex-start;
-  border-bottom: 1px solid rgba(20, 19, 19, 0.08);
 }
 
 .register-page.new-design .form-confirmation .form-legend-heading {
